@@ -22,7 +22,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping(value = "/user")
+@RequestMapping(value = "/api/authenticate")
 public class UserController {
 
     @Autowired
