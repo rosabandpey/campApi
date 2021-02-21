@@ -44,7 +44,7 @@ public class UserController {
 
     @GetMapping("/userList")
     //@Secured("ROLE_ADMIN")
-    @PreAuthorize("hasRole('ADMIN')")
+   // @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?>  userList() {
 
             List<AppUser> users=userService.findAllUser();
