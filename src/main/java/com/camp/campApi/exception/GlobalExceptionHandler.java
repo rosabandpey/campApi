@@ -33,7 +33,7 @@ public class GlobalExceptionHandler {
         responseService.saveResponse(errorMessage);
 
         ResponseApi responseApi=new ResponseApi(false,exception.getMessage(),new Date().toString(),null);
-        return new ResponseEntity<>(responseApi,HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(responseApi,HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
 

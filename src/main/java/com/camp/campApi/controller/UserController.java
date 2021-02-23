@@ -7,6 +7,7 @@ import com.camp.campApi.service.ResponseService;
 import com.camp.campApi.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -29,7 +30,7 @@ public class UserController {
     private UserService userService;
 
 
-    @RequestMapping(value = "/register",method = {RequestMethod.GET,RequestMethod.POST})
+    @RequestMapping(value = "/register",method = {RequestMethod.GET,RequestMethod.POST},produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<?>  register(@RequestBody AppUser appUser) {
 
             AppUser user = userService.register(appUser);
