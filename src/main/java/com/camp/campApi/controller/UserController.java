@@ -29,7 +29,7 @@ public class UserController {
     private UserService userService;
 
 
-    @RequestMapping(value = "/register",method = {RequestMethod.GET,RequestMethod.POST},produces =  "application/json",consumes = "application/json")
+    @RequestMapping(value = "/register",method = {RequestMethod.GET,RequestMethod.POST})
     public ResponseEntity<?>  register(@RequestBody AppUser appUser) {
 
             AppUser user = userService.register(appUser);

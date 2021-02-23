@@ -1,6 +1,7 @@
 package com.camp.campApi.service.impl;
 
 import com.camp.campApi.entity.AppUser;
+import com.camp.campApi.entity.ResponseApi;
 import com.camp.campApi.entity.UserRole;
 import com.camp.campApi.exception.ApiException;
 import com.camp.campApi.exception.ResourceNotFoundException;
@@ -9,11 +10,13 @@ import com.camp.campApi.repository.UserRepo;
 import com.camp.campApi.service.UserService;
 import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -45,8 +48,10 @@ public class UserServiceImpl implements UserService {
         AppUser userEmail = userRepo.findAppUserByUsername(appUser.getUsername());
         if (userEmail!=null ){
             throw new ApiException("User Exists");
+        } else {
+            userRepo.save(appUser);
         }
-        userRepo.save(appUser);
+
         return appUser;
     }
 
