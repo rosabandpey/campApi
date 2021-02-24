@@ -1,25 +1,18 @@
 package com.camp.campApi.service.impl;
 
 import com.camp.campApi.entity.AppUser;
-import com.camp.campApi.entity.ResponseApi;
 import com.camp.campApi.entity.UserRole;
 import com.camp.campApi.exception.ApiException;
-import com.camp.campApi.exception.ResourceNotFoundException;
+import com.camp.campApi.exception.NotFoundException;
 import com.camp.campApi.repository.RoleRepo;
 import com.camp.campApi.repository.UserRepo;
 import com.camp.campApi.service.UserService;
-import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Date;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Service
 @Transactional
@@ -69,21 +62,21 @@ public class UserServiceImpl implements UserService {
 
     public List<AppUser> findAllUser() {
        List<AppUser> users= userRepo.findAll();
-       if (users==null) throw new ResourceNotFoundException("List Is Empty ,there is no User");
+       if (users==null) throw new NotFoundException("List Is Empty ,there is no User");
        return users;
     }
 
     @Override
     public AppUser findByUsername(String username) {
         AppUser user=userRepo.findAppUserByUsername(username);
-        if (user==null) throw new ResourceNotFoundException("User Not Found By Username  "+username);
+        if (user==null) throw new NotFoundException("User Not Found By Username  "+username);
         return user;
     }
 
     @Override
     public AppUser findByUserId(long id) {
         AppUser user=userRepo.findAppUserById(id);
-        if (user==null) throw new ResourceNotFoundException("User Not Found By Username  "+id);
+        if (user==null) throw new NotFoundException("User Not Found By Username  "+id);
         return user;
     }
 
