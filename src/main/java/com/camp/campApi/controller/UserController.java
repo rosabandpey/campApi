@@ -45,16 +45,17 @@ public class UserController {
     @GetMapping("/userList")
     //@Secured("ROLE_ADMIN")
    // @PreAuthorize("hasRole('ADMIN')")
-    public List  userList() throws NotFoundException {
+    public ResponseEntity<?> userList() throws NotFoundException {
 
             List<AppUser> users=userService.findAllUser();
-            return users;
+            ResponseApi responseApi=new ResponseApi(true,HttpStatus.OK.toString(),new Date().toString(), users);
+            return new ResponseEntity<>(responseApi,HttpStatus.OK);
 
     }
 
     @GetMapping("/getByUsername/{username}")
 
-    public AppUser findUserByUsername(@PathVariable ("username") String username) {
+    public AppUser findUserByUsername(@PathParam ("username") String username) {
 
         AppUser user=userService.findByUsername(username);
 
