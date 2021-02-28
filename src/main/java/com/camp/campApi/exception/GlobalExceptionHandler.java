@@ -37,7 +37,7 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<?> apiException(Exception exception,WebRequest request)
+    public ResponseEntity<?> globalException(Exception exception,WebRequest request)
     {
         String stackTrace= ExceptionUtils.getStackTrace(exception);
         ErrorMessage errorMessage=new ErrorMessage(exception.getMessage(),request.getDescription(false),stackTrace,new Date().toString());
