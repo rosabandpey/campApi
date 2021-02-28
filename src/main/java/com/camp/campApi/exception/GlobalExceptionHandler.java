@@ -3,7 +3,6 @@ package com.camp.campApi.exception;
 import com.camp.campApi.entity.ErrorMessage;
 import com.camp.campApi.entity.ResponseApi;
 import com.camp.campApi.service.ResponseService;
-import javassist.NotFoundException;
 
 
 import org.apache.commons.lang3.exception.ExceptionUtils;
@@ -36,8 +35,10 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(responseApi,HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-    @ExceptionHandler(Exception.class)
-    public ResponseEntity<?> globalException(Exception exception,WebRequest request)
+
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler(NotFoundException.class)
+    public ResponseEntity<?> notFoundException(NotFoundException exception, WebRequest request)
     {
         String stackTrace= ExceptionUtils.getStackTrace(exception);
         ErrorMessage errorMessage=new ErrorMessage(exception.getMessage(),request.getDescription(false),stackTrace,new Date().toString());
@@ -45,8 +46,6 @@ public class GlobalExceptionHandler {
         ResponseApi responseApi=new ResponseApi(false,exception.getMessage(),new Date().toString(),null);
         return new ResponseEntity<>(responseApi,HttpStatus.NOT_FOUND);
     }
-
-
 
 
 }

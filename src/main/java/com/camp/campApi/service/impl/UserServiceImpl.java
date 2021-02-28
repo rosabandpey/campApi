@@ -61,7 +61,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<AppUser> findAllUser() {
        List<AppUser> users= userRepo.findAll();
-       if (users==null) throw new NotFoundException("List Is Empty ,there is no User");
+       if (users.isEmpty()) throw new NotFoundException("List Is Empty ,there is no User");
        return users;
     }
 

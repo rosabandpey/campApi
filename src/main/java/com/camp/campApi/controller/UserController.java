@@ -55,11 +55,12 @@ public class UserController {
 
     @GetMapping("/getByUsername/{username}")
 
-    public AppUser findUserByUsername(@PathParam ("username") String username) {
+    public ResponseEntity<?> findUserByUsername(@PathVariable ("username") String username) {
 
         AppUser user=userService.findByUsername(username);
+        ResponseApi responseApi=new ResponseApi(true,HttpStatus.OK.toString(),new Date().toString(), user);
+        return new ResponseEntity<>(responseApi,HttpStatus.OK);
 
-        return user;
 
     }
 
