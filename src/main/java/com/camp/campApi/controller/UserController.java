@@ -3,6 +3,7 @@ package com.camp.campApi.controller;
 
 import com.camp.campApi.entity.AppUser;
 import com.camp.campApi.entity.ResponseApi;
+import com.camp.campApi.exception.NotFoundException;
 import com.camp.campApi.service.ResponseService;
 import com.camp.campApi.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,12 +42,10 @@ public class UserController {
 
 
 
-
-
     @GetMapping("/userList")
     //@Secured("ROLE_ADMIN")
    // @PreAuthorize("hasRole('ADMIN')")
-    public List  userList() {
+    public List  userList() throws NotFoundException {
 
             List<AppUser> users=userService.findAllUser();
             return users;
@@ -55,15 +54,13 @@ public class UserController {
 
     @GetMapping("/getByUsername/{username}")
 
-    public ResponseEntity<?> findUserByUsername(@PathVariable ("username") String username) {
+    public ResponseEntity<?> findUserByUsername(@PathVariable ("username") String username) throws NotFoundException {
 
         AppUser user=userService.findByUsername(username);
         ResponseApi responseApi=new ResponseApi(true,HttpStatus.OK.toString(),new Date().toString(), user);
         return new ResponseEntity<>(responseApi,HttpStatus.OK);
 
     }
-
-
 
 
 
