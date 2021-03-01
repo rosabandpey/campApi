@@ -6,6 +6,7 @@ import com.camp.campApi.entity.ResponseApi;
 import com.camp.campApi.exception.NotFoundException;
 import com.camp.campApi.service.ResponseService;
 import com.camp.campApi.service.UserService;
+import com.sun.xml.bind.v2.runtime.unmarshaller.XsiNilLoader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -19,6 +20,8 @@ import org.springframework.web.bind.annotation.*;
 
 
 import javax.websocket.server.PathParam;
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -35,7 +38,7 @@ public class UserController {
     public ResponseEntity<?>  register(@RequestBody AppUser appUser) {
 
             AppUser user = userService.register(appUser);
-            ResponseApi responseApi=new ResponseApi(true,HttpStatus.OK.toString(),new Date().toString(), user);
+            ResponseApi responseApi=new ResponseApi(true,HttpStatus.OK.toString(),new Date().toString(), Arrays.asList(user) );
             return new ResponseEntity<>(responseApi,HttpStatus.OK);
 
     }
@@ -45,7 +48,7 @@ public class UserController {
     @GetMapping("/userList")
     //@Secured("ROLE_ADMIN")
    // @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<?> userList() throws NotFoundException {
+    public ResponseEntity<?> userList()  {
 
             List<AppUser> users=userService.findAllUser();
             ResponseApi responseApi=new ResponseApi(true,HttpStatus.OK.toString(),new Date().toString(), users);
@@ -57,7 +60,7 @@ public class UserController {
     public ResponseEntity<?> findUserByUsername(@PathVariable ("username") String username) {
 
         AppUser user=userService.findByUsername(username);
-        ResponseApi responseApi=new ResponseApi(true,HttpStatus.OK.toString(),new Date().toString(), user);
+        ResponseApi responseApi=new ResponseApi(true,HttpStatus.OK.toString(),new Date().toString(),  Arrays.asList(user));
         return new ResponseEntity<>(responseApi,HttpStatus.OK);
 
     }

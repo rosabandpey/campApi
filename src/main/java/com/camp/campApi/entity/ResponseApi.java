@@ -2,6 +2,7 @@ package com.camp.campApi.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 
 public class ResponseApi implements Serializable{
@@ -9,7 +10,7 @@ public class ResponseApi implements Serializable{
     private boolean isSuccessfull;
     private String message;
     private String Date;
-    private Object data;
+    private List<AppUser> data;
 
 
 
@@ -17,7 +18,7 @@ public class ResponseApi implements Serializable{
     public ResponseApi() {
     }
 
-    public ResponseApi(boolean isSuccessfull, String message, String date, Object data) {
+    public ResponseApi(boolean isSuccessfull, String message, String date, List<AppUser> data) {
         this.isSuccessfull = isSuccessfull;
         this.message = message;
         Date = date;
@@ -50,13 +51,11 @@ public class ResponseApi implements Serializable{
         Date = date;
     }
 
-    public Object getData() {
+    public List<AppUser> getData() {
         return data;
     }
 
-    public void setData(Object data) {
+    public void setData(List<AppUser> data) {
         this.data = data;
     }
-
-    
 }
