@@ -13,38 +13,40 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
+import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import java.util.Date;
 import java.util.List;
 
-@ControllerAdvice
-public class GlobalExceptionHandler {
+@RestControllerAdvice
+public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
     @Autowired
     private ResponseService responseService;
 
 
     @ExceptionHandler(ApiException.class)
-    public ResponseEntity<?> apiException(ApiException exception,WebRequest request)
+    public ResponseApi apiException(ApiException exception,WebRequest request)
     {
         String stackTrace= ExceptionUtils.getStackTrace(exception);
         ErrorMessage errorMessage=new ErrorMessage(exception.getMessage(),request.getDescription(false),stackTrace,new Date().toString());
         responseService.saveResponse(errorMessage);
         ResponseApi responseApi=new ResponseApi(false,exception.getMessage(),new Date().toString(),null);
-        return new ResponseEntity<>(responseApi,HttpStatus.INTERNAL_SERVER_ERROR);
+        return responseApi;
     }
 
 
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler(NotFoundException.class)
-    public ResponseEntity<?> notFoundException(NotFoundException exception, WebRequest request)
+    public ResponseApi notFoundException(NotFoundException exception, WebRequest request)
     {
         String stackTrace= ExceptionUtils.getStackTrace(exception);
         ErrorMessage errorMessage=new ErrorMessage(exception.getMessage(),request.getDescription(false),stackTrace,new Date().toString());
         responseService.saveResponse(errorMessage);
         ResponseApi responseApi=new ResponseApi(false,exception.getMessage(),new Date().toString(),null);
-        return new ResponseEntity<>(responseApi,HttpStatus.NOT_FOUND);
+        return responseApi;
     }
 
 
