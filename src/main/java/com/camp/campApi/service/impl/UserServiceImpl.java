@@ -35,7 +35,7 @@ public class UserServiceImpl implements UserService {
     public AppUser register(AppUser appUser) {
 
         appUser.setPassword(bCryptPasswordEncoder.encode(appUser.getPassword()));
-        appUser.setUserRoles(new UserRole(appUser,roleRepo.findRoleByRoleName("USER")));
+        appUser.setUserRoles(new UserRole(appUser,roleRepo.findRoleByRoleName("ROLE_USER")));
         AppUser userEmail = userRepo.findAppUserByUsername(appUser.getUsername());
         if (userEmail!=null ){
             throw new ApiException("User Exists");
