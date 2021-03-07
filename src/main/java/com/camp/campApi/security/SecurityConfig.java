@@ -21,7 +21,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
-	private static final String[] PUBLIC_MATCHERS = { "/api/authenticate/login","/api/authenticate/userList","/api/authenticate/getByUsername/*", "/api/authenticate/register", "/api/authenticate/resetPassword/**", "/image/**" };
+	private static final String[] PUBLIC_MATCHERS = { "/api/authenticate/login", "/api/authenticate/register", "/api/authenticate/resetPassword/**", "/image/**" };
     private static final String[] ADMIN_ROLE={"/user/userList"};
 
 	@Qualifier("userDetaileServiceImpl")
