@@ -64,7 +64,7 @@ public class JwtAuthentication extends UsernamePasswordAuthenticationFilter {
 				.withArrayClaim("roles", roles.toArray(new String[roles.size()]))
 				.withExpiresAt(new Date (System.currentTimeMillis()+SecurityConstants.EXPIRATION_TIME))
 				.sign(Algorithm.HMAC256(SecurityConstants.SECRET));
-		response.addHeader(SecurityConstants.HEADER_TYPE, SecurityConstants.TOKEN_PREFIX+jwtToken);
+		response.addHeader(SecurityConstants.HEADER_TYPE, jwtToken);
 	}
 
 }
