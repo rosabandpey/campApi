@@ -28,25 +28,25 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
 
     @ExceptionHandler(ApiException.class)
-    public ResponseApi apiException(ApiException exception,WebRequest request)
+    public ResponseEntity<?> apiException(ApiException exception,WebRequest request)
     {
         String stackTrace= ExceptionUtils.getStackTrace(exception);
         ErrorMessage errorMessage=new ErrorMessage(exception.getMessage(),request.getDescription(false),stackTrace,new Date().toString());
         responseService.saveResponse(errorMessage);
         ResponseApi responseApi=new ResponseApi(false,exception.getMessage(),new Date().toString(),null);
-        return responseApi;
+        return new ResponseEntity<>(responseApi,HttpStatus.BAD_REQUEST);
     }
 
 
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler(NotFoundException.class)
-    public ResponseApi notFoundException(NotFoundException exception, WebRequest request)
+    public ResponseEntity<?> notFoundException(NotFoundException exception, WebRequest request)
     {
         String stackTrace= ExceptionUtils.getStackTrace(exception);
         ErrorMessage errorMessage=new ErrorMessage(exception.getMessage(),request.getDescription(false),stackTrace,new Date().toString());
         responseService.saveResponse(errorMessage);
         ResponseApi responseApi=new ResponseApi(false,exception.getMessage(),new Date().toString(),null);
-        return responseApi;
+        return new ResponseEntity<>(responseApi,HttpStatus.NOT_FOUND);
     }
 
 
