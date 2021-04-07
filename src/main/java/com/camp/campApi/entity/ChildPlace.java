@@ -16,14 +16,13 @@ public class ChildPlace implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false,updatable = false)
+    @Column(nullable = false, updatable = false)
     private long id;
-
 
 
     @ManyToOne
     @JsonIgnore
-    @JoinColumn(name="place_id")
+    @JoinColumn(name = "place_id")
     private Place mychildplace;
 
     public ChildPlace() {
@@ -72,37 +71,34 @@ public class ChildPlace implements Serializable {
 
     private Date childLastVisit;
 
-    private int  childCrowdness;
+    private int childCrowdness;
 
     private int childManNoise;
 
-    private int  childCleanness;
+    private int childCleanness;
 
-    private int  childSafty;
+    private int childSafty;
 
-    private int  childWater;
+    private int childWater;
 
-    private int  childElectronic;
+    private int childElectronic;
 
-    private int  childShower;
+    private int childShower;
 
-    private int  childTrash;
+    private int childTrash;
 
-    private int  childPicnicTable;
+    private int childPicnicTable;
 
-    private int  childToilet;
+    private int childToilet;
 
-    private int  childWifi;
+    private int childWifi;
 
-    private int  childFirePits;
+    private int childFirePits;
 
-    private int  childPetAllowed;
+    private int childPetAllowed;
 
-    private int  childADAaccessible;
+    private int childADAaccessible;
 
-
-
-    @Id
     public long getId() {
         return id;
     }
@@ -126,8 +122,6 @@ public class ChildPlace implements Serializable {
     public void setChildName(String childName) {
         this.childName = childName;
     }
-
-
 
     public String getChildLocation() {
         return childLocation;
@@ -296,8 +290,4 @@ public class ChildPlace implements Serializable {
     public void setChildADAaccessible(int childADAaccessible) {
         this.childADAaccessible = childADAaccessible;
     }
-
-
 }
-
-
