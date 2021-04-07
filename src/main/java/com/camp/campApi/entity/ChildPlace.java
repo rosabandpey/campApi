@@ -9,8 +9,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name="childplace")
+//@Table(name="child")
 public class ChildPlace implements Serializable {
+
+    private static final long serialVersionUID = -121838495708416147L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,55 +20,87 @@ public class ChildPlace implements Serializable {
     private long id;
 
 
+
     @ManyToOne
     @JsonIgnore
-    @JoinColumn(name="parentid")
-    private Place place;
+    @JoinColumn(name="place_id")
+    private Place mychildplace;
+
+    public ChildPlace() {
+    }
+
+    public ChildPlace(long id, Place mychildplace, String childName, String childLocation, String childDetails, String childCountry, String childCity, String childAddress, String childCellSignal, Date childLastVisit, int childCrowdness, int childManNoise, int childCleanness, int childSafty, int childWater, int childElectronic, int childShower, int childTrash, int childPicnicTable, int childToilet, int childWifi, int childFirePits, int childPetAllowed, int childADAaccessible) {
+        this.id = id;
+        this.mychildplace = mychildplace;
+        this.childName = childName;
+        this.childLocation = childLocation;
+        this.childDetails = childDetails;
+        this.childCountry = childCountry;
+        this.childCity = childCity;
+        this.childAddress = childAddress;
+        this.childCellSignal = childCellSignal;
+        this.childLastVisit = childLastVisit;
+        this.childCrowdness = childCrowdness;
+        this.childManNoise = childManNoise;
+        this.childCleanness = childCleanness;
+        this.childSafty = childSafty;
+        this.childWater = childWater;
+        this.childElectronic = childElectronic;
+        this.childShower = childShower;
+        this.childTrash = childTrash;
+        this.childPicnicTable = childPicnicTable;
+        this.childToilet = childToilet;
+        this.childWifi = childWifi;
+        this.childFirePits = childFirePits;
+        this.childPetAllowed = childPetAllowed;
+        this.childADAaccessible = childADAaccessible;
+    }
+
+    private String childName;
+
+    private String childLocation;
+
+    private String childDetails;
+
+    private String childCountry;
+
+    private String childCity;
+
+    private String childAddress;
+
+    private String childCellSignal;
+
+    private Date childLastVisit;
+
+    private int  childCrowdness;
+
+    private int childManNoise;
+
+    private int  childCleanness;
+
+    private int  childSafty;
+
+    private int  childWater;
+
+    private int  childElectronic;
+
+    private int  childShower;
+
+    private int  childTrash;
+
+    private int  childPicnicTable;
+
+    private int  childToilet;
+
+    private int  childWifi;
+
+    private int  childFirePits;
+
+    private int  childPetAllowed;
+
+    private int  childADAaccessible;
 
 
-    private String name;
-
-    private String location;
-
-    private String details;
-
-    private String country;
-
-    private String city;
-
-    private String address;
-
-    private String cellSignal;
-
-    private Date lastVisit;
-
-    private int  crowdness;
-
-    private int manNoise;
-
-    private int  cleanness;
-
-    private int  safty;
-
-    private int  water;
-
-    private int  electronic;
-
-    private int  shower;
-
-    private int  trash;
-
-    private int  picnicTable;
-
-    private int  toilet;
-
-    private int  wifi;
-
-    private int  firePits;
-
-    private int  petAllowed;
-
-    private int  ADAaccessible;
 
     @Id
     public long getId() {
@@ -77,183 +111,190 @@ public class ChildPlace implements Serializable {
         this.id = id;
     }
 
-
-
-
-    public String getName() {
-        return name;
+    public Place getMychildplace() {
+        return mychildplace;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setMychildplace(Place mychildplace) {
+        this.mychildplace = mychildplace;
     }
 
-    public String getLocation() {
-        return location;
+    public String getChildName() {
+        return childName;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public void setChildName(String childName) {
+        this.childName = childName;
     }
 
-    public String getDetails() {
-        return details;
+
+
+    public String getChildLocation() {
+        return childLocation;
     }
 
-    public void setDetails(String details) {
-        this.details = details;
+    public void setChildLocation(String childLocation) {
+        this.childLocation = childLocation;
     }
 
-    public String getCountry() {
-        return country;
+    public String getChildDetails() {
+        return childDetails;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    public void setChildDetails(String childDetails) {
+        this.childDetails = childDetails;
     }
 
-    public String getCity() {
-        return city;
+    public String getChildCountry() {
+        return childCountry;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setChildCountry(String childCountry) {
+        this.childCountry = childCountry;
     }
 
-    public String getAddress() {
-        return address;
+    public String getChildCity() {
+        return childCity;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setChildCity(String childCity) {
+        this.childCity = childCity;
     }
 
-    public String getCellSignal() {
-        return cellSignal;
+    public String getChildAddress() {
+        return childAddress;
     }
 
-    public void setCellSignal(String cellSignal) {
-        this.cellSignal = cellSignal;
+    public void setChildAddress(String childAddress) {
+        this.childAddress = childAddress;
     }
 
-    public Date getLastVisit() {
-        return lastVisit;
+    public String getChildCellSignal() {
+        return childCellSignal;
     }
 
-    public void setLastVisit(Date lastVisit) {
-        this.lastVisit = lastVisit;
+    public void setChildCellSignal(String childCellSignal) {
+        this.childCellSignal = childCellSignal;
     }
 
-    public int getCrowdness() {
-        return crowdness;
+    public Date getChildLastVisit() {
+        return childLastVisit;
     }
 
-    public void setCrowdness(int crowdness) {
-        this.crowdness = crowdness;
+    public void setChildLastVisit(Date childLastVisit) {
+        this.childLastVisit = childLastVisit;
     }
 
-    public int getManNoise() {
-        return manNoise;
+    public int getChildCrowdness() {
+        return childCrowdness;
     }
 
-    public void setManNoise(int manNoise) {
-        this.manNoise = manNoise;
+    public void setChildCrowdness(int childCrowdness) {
+        this.childCrowdness = childCrowdness;
     }
 
-    public int getCleanness() {
-        return cleanness;
+    public int getChildManNoise() {
+        return childManNoise;
     }
 
-    public void setCleanness(int cleanness) {
-        this.cleanness = cleanness;
+    public void setChildManNoise(int childManNoise) {
+        this.childManNoise = childManNoise;
     }
 
-    public int getSafty() {
-        return safty;
+    public int getChildCleanness() {
+        return childCleanness;
     }
 
-    public void setSafty(int safty) {
-        this.safty = safty;
+    public void setChildCleanness(int childCleanness) {
+        this.childCleanness = childCleanness;
     }
 
-    public int getWater() {
-        return water;
+    public int getChildSafty() {
+        return childSafty;
     }
 
-    public void setWater(int water) {
-        this.water = water;
+    public void setChildSafty(int childSafty) {
+        this.childSafty = childSafty;
     }
 
-    public int getElectronic() {
-        return electronic;
+    public int getChildWater() {
+        return childWater;
     }
 
-    public void setElectronic(int electronic) {
-        this.electronic = electronic;
+    public void setChildWater(int childWater) {
+        this.childWater = childWater;
     }
 
-    public int getShower() {
-        return shower;
+    public int getChildElectronic() {
+        return childElectronic;
     }
 
-    public void setShower(int shower) {
-        this.shower = shower;
+    public void setChildElectronic(int childElectronic) {
+        this.childElectronic = childElectronic;
     }
 
-    public int getTrash() {
-        return trash;
+    public int getChildShower() {
+        return childShower;
     }
 
-    public void setTrash(int trash) {
-        this.trash = trash;
+    public void setChildShower(int childShower) {
+        this.childShower = childShower;
     }
 
-    public int getPicnicTable() {
-        return picnicTable;
+    public int getChildTrash() {
+        return childTrash;
     }
 
-    public void setPicnicTable(int picnicTable) {
-        this.picnicTable = picnicTable;
+    public void setChildTrash(int childTrash) {
+        this.childTrash = childTrash;
     }
 
-    public int getToilet() {
-        return toilet;
+    public int getChildPicnicTable() {
+        return childPicnicTable;
     }
 
-    public void setToilet(int toilet) {
-        this.toilet = toilet;
+    public void setChildPicnicTable(int childPicnicTable) {
+        this.childPicnicTable = childPicnicTable;
     }
 
-    public int getWifi() {
-        return wifi;
+    public int getChildToilet() {
+        return childToilet;
     }
 
-    public void setWifi(int wifi) {
-        this.wifi = wifi;
+    public void setChildToilet(int childToilet) {
+        this.childToilet = childToilet;
     }
 
-    public int getFirePits() {
-        return firePits;
+    public int getChildWifi() {
+        return childWifi;
     }
 
-    public void setFirePits(int firePits) {
-        this.firePits = firePits;
+    public void setChildWifi(int childWifi) {
+        this.childWifi = childWifi;
     }
 
-    public int getPetAllowed() {
-        return petAllowed;
+    public int getChildFirePits() {
+        return childFirePits;
     }
 
-    public void setPetAllowed(int petAllowed) {
-        this.petAllowed = petAllowed;
+    public void setChildFirePits(int childFirePits) {
+        this.childFirePits = childFirePits;
     }
 
-    public int getADAaccessible() {
-        return ADAaccessible;
+    public int getChildPetAllowed() {
+        return childPetAllowed;
     }
 
-    public void setADAaccessible(int ADAaccessible) {
-        this.ADAaccessible = ADAaccessible;
+    public void setChildPetAllowed(int childPetAllowed) {
+        this.childPetAllowed = childPetAllowed;
+    }
+
+    public int getChildADAaccessible() {
+        return childADAaccessible;
+    }
+
+    public void setChildADAaccessible(int childADAaccessible) {
+        this.childADAaccessible = childADAaccessible;
     }
 
 

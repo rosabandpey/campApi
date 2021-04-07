@@ -11,15 +11,22 @@ import java.util.Set;
 @Table(name="place")
 public class Place implements Serializable {
 
+    private static final long serialVersionUID = -121838495708416152L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false,updatable = false)
-    private long placeId;
+    private long id;
 
     private String placeName;
 
     @OneToMany(mappedBy = "place")
     private Set<Place> parentName=new HashSet<>();
+
+
+    @OneToMany(mappedBy = "mychildplace")
+    private Set<ChildPlace> mychildplace=new HashSet<>();
+
 
     @ManyToOne
     @JsonIgnore
@@ -27,6 +34,47 @@ public class Place implements Serializable {
     private Place place;
 
 
+    public Place() {
+    }
+
+    public Place(long id, String placeName, Set<Place> parentName, Place place) {
+        this.id = id;
+        this.placeName = placeName;
+        this.parentName = parentName;
+        this.place = place;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
 
+
+    public String getPlaceName() {
+        return placeName;
+    }
+
+    public void setPlaceName(String placeName) {
+        this.placeName = placeName;
+    }
+
+    public Set<Place> getParentName() {
+        return parentName;
+    }
+
+    public void setParentName(Set<Place> parentName) {
+        this.parentName = parentName;
+    }
+
+    public Place getPlace() {
+        return place;
+    }
+
+    public void setPlace(Place place) {
+        this.place = place;
+    }
 }
