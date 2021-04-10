@@ -4,10 +4,14 @@ import com.camp.campApi.entity.ChildPlace;
 import com.camp.campApi.repository.ChildPlaceRepo;
 import com.camp.campApi.service.ChildPlaceService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-public class ChildPlaceImpl implements ChildPlaceService {
+@Transactional
+@Service
+public class ChildPlaceServiceImpl implements ChildPlaceService {
 
     @Autowired
     ChildPlaceRepo childPlaceRepo;
@@ -19,11 +23,11 @@ public class ChildPlaceImpl implements ChildPlaceService {
         return  childPlaceRepo.save(childPlace);
     }
 
-    @Override
+   /* @Override
     public ChildPlace updateChildPlace(long id) {
         ChildPlace childPlace=childPlaceRepo.updateChildPlaceById(id);
         return childPlace;
-    }
+    } */
 
     @Override
     public List<ChildPlace> findAllChildPlace() {

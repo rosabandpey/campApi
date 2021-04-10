@@ -11,6 +11,7 @@ public interface ChildPlaceRepo extends JpaRepository<ChildPlace,Long> {
 
     public ChildPlace deleteChildPlaceById(long id);
 
-    public ChildPlace updateChildPlaceById(long id);
+
+    //public ChildPlace updateChildPlaceById(long id);
 
 }

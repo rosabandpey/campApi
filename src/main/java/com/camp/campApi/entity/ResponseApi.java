@@ -10,7 +10,7 @@ public class ResponseApi implements Serializable{
     private boolean isSuccessfull;
     private String message;
     private String Date;
-    private List<AppUser> data;
+    private List<?> data;
 
 
 
@@ -18,7 +18,7 @@ public class ResponseApi implements Serializable{
     public ResponseApi() {
     }
 
-    public ResponseApi(boolean isSuccessfull, String message, String date, List<AppUser> data) {
+    public ResponseApi(boolean isSuccessfull, String message, String date, List<?> data) {
         this.isSuccessfull = isSuccessfull;
         this.message = message;
         Date = date;
@@ -51,11 +51,11 @@ public class ResponseApi implements Serializable{
         Date = date;
     }
 
-    public List<AppUser> getData() {
+    public List<?> getData() {
         return data;
     }
 
-    public void setData(List<AppUser> data) {
+    public void setData(List<?> data) {
         this.data = data;
     }
 }
