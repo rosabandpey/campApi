@@ -34,6 +34,9 @@ public class AppUser implements Serializable {
     @OneToMany(mappedBy = "appuser",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     private Set<UserRole> userRoles=new HashSet<>();
 
+    @OneToMany(mappedBy ="userapp" )
+    private Set<UserChildPlace> userChildPlaces=new HashSet<>();
+
 
 
     public AppUser() {
