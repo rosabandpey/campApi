@@ -23,11 +23,12 @@ public class ChildPlaceServiceImpl implements ChildPlaceService {
         return  childPlaceRepo.save(childPlace);
     }
 
-   /* @Override
-    public ChildPlace updateChildPlace(long id) {
-        ChildPlace childPlace=childPlaceRepo.updateChildPlaceById(id);
-        return childPlace;
-    } */
+    @Override
+    public ChildPlace updateChildPlace(long id, String name, String country) {
+        ChildPlace place=childPlaceRepo.updateChildPlaceById(id,name,country);
+        return place;
+    }
+
 
     @Override
     public List<ChildPlace> findAllChildPlace() {

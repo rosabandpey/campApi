@@ -57,4 +57,12 @@ public class ChildPlaceController {
     }
 
 
+    @PutMapping(value = "/updatePlace")
+    public ResponseEntity<?> updatePlace(@PathVariable String childName,@PathVariable String country,@PathVariable long id)
+    {
+        ChildPlace place=childPlaceService.updateChildPlace(id,childName,country);
+        ResponseApi responseApi=new ResponseApi(true,HttpStatus.OK.toString(),new Date().toString(), Arrays.asList(place) );
+        return new ResponseEntity<>(responseApi,HttpStatus.OK );
+    }
+
 }

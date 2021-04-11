@@ -9,7 +9,7 @@ import java.util.List;
 public interface ChildPlaceService {
 
     public ChildPlace registerChildPlace(ChildPlace childPlace);
-    // ChildPlace updateChildPlace(long id);
+    public ChildPlace updateChildPlace(long id,String name,String country);
     public List<ChildPlace> findAllChildPlace();
     public ChildPlace findChildPlaceByName(String childName);
     public ChildPlace findChildPlaceById(long id);
