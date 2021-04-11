@@ -20,8 +20,10 @@ public class Place implements Serializable {
 
     private String placeName;
 
+    private String parentName;
+
     @OneToMany(mappedBy = "place")
-    private Set<Place> parentName=new HashSet<>();
+    private Set<Place> parent=new HashSet<>();
 
 
     @OneToMany(mappedBy = "mychildplace")
@@ -37,10 +39,13 @@ public class Place implements Serializable {
     public Place() {
     }
 
-    public Place(long id, String placeName, Set<Place> parentName, Place place) {
+
+
+    public Place(long id, String placeName, String parentName, Set<Place> parent, Place place) {
         this.id = id;
         this.placeName = placeName;
         this.parentName = parentName;
+        this.parent = parent;
         this.place = place;
     }
 
@@ -62,12 +67,20 @@ public class Place implements Serializable {
         this.placeName = placeName;
     }
 
-    public Set<Place> getParentName() {
+    public String getParentName() {
         return parentName;
     }
 
-    public void setParentName(Set<Place> parentName) {
+    public void setParentName(String parentName) {
         this.parentName = parentName;
+    }
+
+    public Set<Place> getParent() {
+        return parent;
+    }
+
+    public void setParent(Set<Place> parent) {
+        this.parent = parent;
     }
 
     public Place getPlace() {

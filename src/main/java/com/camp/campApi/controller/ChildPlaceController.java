@@ -21,17 +21,17 @@ public class ChildPlaceController {
     ChildPlaceService childPlaceService;
 
 
-    @PostMapping(value = "/savePlace")
+    @PostMapping(value = "/savePlace/{placeName}")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<?> savePlace(@RequestBody ChildPlace childPlace)
+    public ResponseEntity<?> savePlace(@RequestBody ChildPlace childPlace,@PathVariable("placeName") String placeName)
     {
-        ChildPlace place=childPlaceService.registerChildPlace(childPlace);
+        ChildPlace place=childPlaceService.registerChildPlace(childPlace,placeName);
         ResponseApi responseApi=new ResponseApi(true,HttpStatus.OK.toString(),new Date().toString(), Arrays.asList(place) );
         return new ResponseEntity<>(responseApi,HttpStatus.OK );
     }
 
-    @GetMapping(value = "/findPlaceByName")
-    public ResponseEntity<?> findPlaceByName(@PathVariable String childName)
+    @GetMapping(value = "/findPlaceByName/{findPlaceByName}")
+    public ResponseEntity<?> findPlaceByName(@PathVariable("findPlaceByName") String childName)
     {
         ChildPlace place=childPlaceService.findChildPlaceByName(childName);
         ResponseApi responseApi=new ResponseApi(true,HttpStatus.OK.toString(),new Date().toString(), Arrays.asList(place) );

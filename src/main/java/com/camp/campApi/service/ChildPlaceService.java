@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface ChildPlaceService {
 
-    public ChildPlace registerChildPlace(ChildPlace childPlace);
+    public ChildPlace registerChildPlace(ChildPlace childPlace,String placeName);
     public ChildPlace updateChildPlace(long id,String name,String country);
     public List<ChildPlace> findAllChildPlace();
     public ChildPlace findChildPlaceByName(String childName);

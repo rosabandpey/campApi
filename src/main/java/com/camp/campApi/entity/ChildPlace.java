@@ -25,6 +25,7 @@ public class ChildPlace implements Serializable {
     @JoinColumn(name = "place_id")
     private Place mychildplace;
 
+
     @OneToMany(mappedBy ="placechild" )
     private Set<UserChildPlace> userChildPlaces=new HashSet<>();
 
@@ -75,32 +76,46 @@ public class ChildPlace implements Serializable {
 
     private Date childLastVisit;
 
+    @Column(nullable = true)
     private int childCrowdness;
 
+    @Column(nullable = true)
     private int childManNoise;
 
+    @Column(nullable = true)
     private int childCleanness;
 
+    @Column(nullable = true)
     private int childSafty;
 
+    @Column(nullable = true)
     private int childWater;
 
+    @Column(nullable = true)
     private int childElectronic;
 
+    @Column(nullable = true)
     private int childShower;
 
+    @Column(nullable = true)
     private int childTrash;
 
+    @Column(nullable = true)
     private int childPicnicTable;
 
+    @Column(nullable = true)
     private int childToilet;
 
+    @Column(nullable = true)
     private int childWifi;
 
+    @Column(nullable = true)
     private int childFirePits;
 
+    @Column(nullable = true)
     private int childPetAllowed;
 
+    @Column(nullable = true)
     private int childADAaccessible;
 
     public long getId() {
