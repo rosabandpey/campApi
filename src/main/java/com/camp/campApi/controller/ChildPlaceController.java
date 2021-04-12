@@ -35,7 +35,7 @@ public class ChildPlaceController {
 
     @PostMapping(value = "/savePlace/{placeName}")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<?> savePlace(@RequestBody ChildPlace childPlace, @PathVariable("placeName") String placeName, HttpServletRequest request) throws IOException {
+    public ResponseEntity<?> savePlace(@RequestBody ChildPlace childPlace, @PathVariable("placeName") String placeName, HttpServletRequest request)  {
         String jwtToken = request.getHeader(SecurityConstants.HEADER_TYPE);
         JWT.require(Algorithm.HMAC256(SecurityConstants.SECRET));
         DecodedJWT jwt = JWT.decode(jwtToken.substring(SecurityConstants.TOKEN_PREFIX.length()));
