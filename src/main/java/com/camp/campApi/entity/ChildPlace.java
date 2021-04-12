@@ -26,8 +26,13 @@ public class ChildPlace implements Serializable {
     private Place mychildplace;
 
 
-    @OneToMany(mappedBy ="placechild" )
-    private Set<UserChildPlace> userChildPlaces=new HashSet<>();
+    @ManyToOne
+    @JsonIgnore
+    @JoinColumn(name = "user_id")
+    private AppUser userChildPlace;
+
+   // @OneToMany(mappedBy ="placechild" )
+   // private Set<UserChildPlace> userChildPlaces=new HashSet<>();
 
 
     public ChildPlace() {
@@ -308,5 +313,13 @@ public class ChildPlace implements Serializable {
 
     public void setChildADAaccessible(int childADAaccessible) {
         this.childADAaccessible = childADAaccessible;
+    }
+
+    public AppUser getUserChildPlace() {
+        return userChildPlace;
+    }
+
+    public void setUserChildPlace(AppUser userChildPlace) {
+        this.userChildPlace = userChildPlace;
     }
 }

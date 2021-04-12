@@ -5,9 +5,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import java.io.Serializable;
 
-@Entity
+//@Entity
 public class UserChildPlace implements Serializable {
-
+/*
     private static final long serialVersionUID = -121838495708416154L;
 
 
@@ -27,6 +27,11 @@ public class UserChildPlace implements Serializable {
     private ChildPlace placechild;
 
     public UserChildPlace() {
+    }
+
+    public UserChildPlace(AppUser userapp, ChildPlace placechild) {
+        this.userapp = userapp;
+        this.placechild = placechild;
     }
 
     public UserChildPlace(long id, AppUser userapp, ChildPlace placechild) {
@@ -58,4 +63,6 @@ public class UserChildPlace implements Serializable {
     public void setPlacechild(ChildPlace placechild) {
         this.placechild = placechild;
     }
+
+ */
 }

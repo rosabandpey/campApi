@@ -53,6 +53,7 @@ public class JwtAuthentication extends UsernamePasswordAuthenticationFilter {
 	protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain,
 			Authentication authentication) throws IOException, ServletException {
 		User user = (User) authentication.getPrincipal();
+
 		List<String> roles = new ArrayList<>();
 		user.getAuthorities()
 				.forEach(authority -> {

@@ -1,9 +1,12 @@
 package com.camp.campApi.service.impl;
 
+import com.camp.campApi.entity.AppUser;
 import com.camp.campApi.entity.ChildPlace;
 import com.camp.campApi.entity.Place;
+import com.camp.campApi.entity.UserChildPlace;
 import com.camp.campApi.repository.ChildPlaceRepo;
 import com.camp.campApi.repository.PlaceRepo;
+import com.camp.campApi.repository.UserRepo;
 import com.camp.campApi.service.ChildPlaceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,10 +24,15 @@ public class ChildPlaceServiceImpl implements ChildPlaceService {
     @Autowired
     PlaceRepo placeRepo;
 
+    @Autowired
+    UserRepo userRepo;
+
     @Override
-    public ChildPlace registerChildPlace(ChildPlace childPlace,String placeName) {
+    public ChildPlace registerChildPlace(ChildPlace childPlace,String placeName,String username) {
+
 
         childPlace.setMychildplace(placeRepo.findPlaceByPlaceName(placeName));
+        childPlace.setUserChildPlace(userRepo.findAppUserByUsername(username));
     return  childPlaceRepo.save(childPlace);
     }
 
