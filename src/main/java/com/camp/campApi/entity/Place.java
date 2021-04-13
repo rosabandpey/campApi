@@ -18,8 +18,10 @@ public class Place implements Serializable {
     @Column(nullable = false,updatable = false)
     private long id;
 
+    @Column(nullable = false)
     private String placeName;
 
+    @Column(nullable = false)
     private String parentName;
 
     @OneToMany(mappedBy = "place")
@@ -32,7 +34,7 @@ public class Place implements Serializable {
 
     @ManyToOne
     @JsonIgnore
-    @JoinColumn(name="parent_id")
+    @JoinColumn(name="parent_id",nullable = false)
     private Place place;
 
 

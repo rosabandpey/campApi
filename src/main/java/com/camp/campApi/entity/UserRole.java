@@ -19,12 +19,12 @@ public class UserRole  implements Serializable {
 
     @ManyToOne
     @JsonIgnore
-    @JoinColumn(name = "role_id")
+    @JoinColumn(name = "role_id",nullable = false)
     private Role role;
 
     @ManyToOne
     @JsonIgnore
-    @JoinColumn(name="user_id")
+    @JoinColumn(name="user_id",nullable = false)
     private AppUser appuser;
 
     public UserRole() {

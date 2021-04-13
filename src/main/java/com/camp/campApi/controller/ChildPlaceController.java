@@ -33,13 +33,10 @@ public class ChildPlaceController {
 
 
 
-    @PostMapping(value = "/savePlace/{placeName}")
+    @PostMapping(value = "/savePlace/{placeName}/{username}")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<?> savePlace(@RequestBody ChildPlace childPlace, @PathVariable("placeName") String placeName, HttpServletRequest request)  {
-        String jwtToken = request.getHeader(SecurityConstants.HEADER_TYPE);
-        JWT.require(Algorithm.HMAC256(SecurityConstants.SECRET));
-        DecodedJWT jwt = JWT.decode(jwtToken.substring(SecurityConstants.TOKEN_PREFIX.length()));
-        String username = jwt.getSubject();
+    public ResponseEntity<?> savePlace(@RequestBody ChildPlace childPlace, @PathVariable("placeName") String placeName, @PathVariable("username") String username)  {
+
         ChildPlace place=childPlaceService.registerChildPlace(childPlace,placeName,username);
         ResponseApi responseApi=new ResponseApi(true,HttpStatus.OK.toString(),new Date().toString(), Arrays.asList(place) );
         return new ResponseEntity<>(responseApi,HttpStatus.OK );

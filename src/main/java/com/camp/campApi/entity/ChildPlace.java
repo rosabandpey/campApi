@@ -22,13 +22,13 @@ public class ChildPlace implements Serializable {
 
     @ManyToOne
     @JsonIgnore
-    @JoinColumn(name = "place_id")
+    @JoinColumn(name = "place_id",nullable = false)
     private Place mychildplace;
 
 
     @ManyToOne
     @JsonIgnore
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id",nullable = false)
     private AppUser userChildPlace;
 
    // @OneToMany(mappedBy ="placechild" )
@@ -38,7 +38,7 @@ public class ChildPlace implements Serializable {
     public ChildPlace() {
     }
 
-    public ChildPlace(long id, Place mychildplace, String childName, String childLocation, String childDetails, String childCountry, String childCity, String childAddress, String childCellSignal, Date childLastVisit, int childCrowdness, int childManNoise, int childCleanness, int childSafty, int childWater, int childElectronic, int childShower, int childTrash, int childPicnicTable, int childToilet, int childWifi, int childFirePits, int childPetAllowed, int childADAaccessible) {
+    public ChildPlace(long id, Place mychildplace, String childName, String childLocation, String childDetails, String childCountry, String childCity, String childAddress, int childCellSignal, Date childLastVisit, int childCrowdness, int childManNoise, int childCleanness, int childSafty, int childWater, int childElectronic, int childShower, int childTrash, int childPicnicTable, int childToilet, int childWifi, int childFirePits, int childPetAllowed, int childADAaccessible) {
         this.id = id;
         this.mychildplace = mychildplace;
         this.childName = childName;
@@ -65,62 +65,68 @@ public class ChildPlace implements Serializable {
         this.childADAaccessible = childADAaccessible;
     }
 
+    @Column(unique = true,nullable = false)
     private String childName;
 
+    @Column(nullable = false)
     private String childLocation;
 
     private String childDetails;
 
+    @Column(nullable = false)
     private String childCountry;
 
+    @Column(nullable = false)
     private String childCity;
 
+    @Column(nullable = false)
     private String childAddress;
 
-    private String childCellSignal;
+    @Column(nullable = false)
+    private int childCellSignal;
 
     private Date childLastVisit;
 
-    @Column(nullable = true)
+    @Column(nullable = false)
     private int childCrowdness;
 
-    @Column(nullable = true)
+    @Column(nullable = false)
     private int childManNoise;
 
-    @Column(nullable = true)
+    @Column(nullable = false)
     private int childCleanness;
 
-    @Column(nullable = true)
+    @Column(nullable = false)
     private int childSafty;
 
-    @Column(nullable = true)
+    @Column(nullable = false)
     private int childWater;
 
-    @Column(nullable = true)
+    @Column(nullable = false)
     private int childElectronic;
 
-    @Column(nullable = true)
+    @Column(nullable = false)
     private int childShower;
 
-    @Column(nullable = true)
+    @Column(nullable = false)
     private int childTrash;
 
-    @Column(nullable = true)
+    @Column(nullable = false)
     private int childPicnicTable;
 
-    @Column(nullable = true)
+    @Column(nullable = false)
     private int childToilet;
 
-    @Column(nullable = true)
+    @Column(nullable = false)
     private int childWifi;
 
-    @Column(nullable = true)
+    @Column(nullable = false)
     private int childFirePits;
 
-    @Column(nullable = true)
+    @Column(nullable = false)
     private int childPetAllowed;
 
-    @Column(nullable = true)
+    @Column(nullable = false)
     private int childADAaccessible;
 
     public long getId() {
@@ -187,11 +193,11 @@ public class ChildPlace implements Serializable {
         this.childAddress = childAddress;
     }
 
-    public String getChildCellSignal() {
+    public int getChildCellSignal() {
         return childCellSignal;
     }
 
-    public void setChildCellSignal(String childCellSignal) {
+    public void setChildCellSignal(int childCellSignal) {
         this.childCellSignal = childCellSignal;
     }
 
