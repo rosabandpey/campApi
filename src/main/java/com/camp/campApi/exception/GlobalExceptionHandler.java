@@ -49,5 +49,15 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(responseApi,HttpStatus.NOT_FOUND);
     }
 
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<?> apiException(Exception exception,WebRequest request)
+    {
+        String stackTrace= ExceptionUtils.getStackTrace(exception);
+        ErrorMessage errorMessage=new ErrorMessage(exception.getMessage(),request.getDescription(false),stackTrace,new Date().toString());
+        responseService.saveResponse(errorMessage);
+        ResponseApi responseApi=new ResponseApi(false,exception.getMessage(),new Date().toString(),null);
+        return new ResponseEntity<>(responseApi,HttpStatus.BAD_REQUEST);
+    }
+
 
 }
