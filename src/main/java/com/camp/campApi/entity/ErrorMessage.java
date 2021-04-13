@@ -1,12 +1,15 @@
 package com.camp.campApi.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity()
 @Table(name="responseerror")
-public class ErrorMessage {
+public class ErrorMessage implements Serializable {
 
+    private static final long serialVersionUID = -121838495708416141L;
 
+    @Column(columnDefinition="LONGTEXT")
     private String message;
 
     @Column(columnDefinition="LONGTEXT")
