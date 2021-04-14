@@ -31,9 +31,6 @@ public class ChildPlace implements Serializable {
     @JoinColumn(name = "user_id",nullable = false)
     private AppUser userChildPlace;
 
-   // @OneToMany(mappedBy ="placechild" )
-   // private Set<UserChildPlace> userChildPlaces=new HashSet<>();
-
 
     public ChildPlace() {
     }
