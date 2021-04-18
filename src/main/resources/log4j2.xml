@@ -5,6 +5,13 @@
     </Properties>
 
     <Appenders>
+
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t]
+      %highlight{%level}{FATAL=bg_red, ERROR=red, WARN=yellow, INFO=green, DEBUG=blue} - %msg%n" />
+        </Console>
+
+
         <RollingFile name="fileLogger" fileName="${basePath}/app-info.log" filePattern="${basePath}/app-info-%d{yyyy-MM-dd}.log">
             <PatternLayout>
                 <pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n</pattern>
@@ -28,14 +35,17 @@
 
     </Appenders>
     <Loggers>
-        <Logger name="com.howtodoinjava" level="debug" additivity="true">
+        <Logger name="com.campApi" level="debug" additivity="true">
             <appender-ref ref="fileLogger" level="warn" />
+            <appender-ref ref="MySQLDatabase" level="warn" />
         </Logger>
 
-        <Root level="warn" additivity="false">
-            <AppenderRef ref="MySQLDatabase" />
-            <appender-ref ref="fileLogger" />
+        <Root level="info" additivity="false">
+            <appender-ref ref="Console" />
+            <appender-ref ref="fileLogger"/>
+            <appender-ref ref="MySQLDatabase"/>
         </Root>
+
 
     </Loggers>
 </Configuration>
