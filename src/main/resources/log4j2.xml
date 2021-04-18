@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="error">
-    <Appenders>
-        <Console name="Console" target="SYSTEM_OUT">
-            <PatternLayout pattern="%d{yyyy-MMM-dd hh:mm:ss a } %level %c - %m %n" />
-        </Console>
+<Configuration status="warn">
+    <Properties>
+        <Property name="basePath">J:\jav\campApi\logs</Property>
+    </Properties>
 
-        <File name="MyFile" fileName="logging/app.log">
+    <Appenders>
+        <RollingFile name="fileLogger" fileName="${basePath}/app-info.log" filePattern="${basePath}/app-info-%d{yyyy-MM-dd}.log">
             <PatternLayout>
-                <Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+                <pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n</pattern>
             </PatternLayout>
-        </File>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true" />
+            </Policies>
+        </RollingFile>
 
         <JDBC name="MySQLDatabase" tableName="APP_LOGS">
             <ConnectionFactory
-                    class="com.camp.campApi.logging.ConnectionFactory" method="getConnection" />
+                    class="com.camp.campApi.logging.Log4jConnectionFactory" method="getDatabaseConnection" />
             <Column name="LOG_ID" pattern="%u" />
             <Column name="ENTRY_DATE" isEventTimestamp="true" />
             <Column name="LOGGER" pattern="%logger" />
@@ -21,13 +24,18 @@
             <Column name="MESSAGE" pattern="%m" />
             <Column name="EXCEPTION" pattern="%throwable " />
         </JDBC>
+
+
     </Appenders>
-
     <Loggers>
-        <Root level="warn">
-            <AppenderRef ref="Console" />
-            <AppenderRef ref="MySQLDatabase" />
-        </Root>
-    </Loggers>
+        <Logger name="com.howtodoinjava" level="debug" additivity="true">
+            <appender-ref ref="fileLogger" level="warn" />
+        </Logger>
 
+        <Root level="warn" additivity="false">
+            <AppenderRef ref="MySQLDatabase" />
+            <appender-ref ref="fileLogger" />
+        </Root>
+
+    </Loggers>
 </Configuration>
