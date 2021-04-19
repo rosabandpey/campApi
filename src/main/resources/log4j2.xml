@@ -35,15 +35,12 @@
 
     </Appenders>
     <Loggers>
-        <Logger name="com.campApi" level="debug" additivity="true">
-            <appender-ref ref="fileLogger" level="warn" />
-            <appender-ref ref="MySQLDatabase" level="warn" />
-        </Logger>
 
-        <Root level="info" additivity="false">
+
+        <Root level="info" >
             <appender-ref ref="Console" />
-            <appender-ref ref="fileLogger"/>
-            <appender-ref ref="MySQLDatabase"/>
+            <appender-ref ref="MySQLDatabase" />
+            <appender-ref ref="fileLogger" />
         </Root>
 
 
