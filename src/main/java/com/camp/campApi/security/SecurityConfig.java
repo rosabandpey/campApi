@@ -57,7 +57,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.anyRequest().authenticated()
 		.and()
 				.exceptionHandling().authenticationEntryPoint(unauthorizedHandler)
-				
+
 		.and()
 		.addFilter(jwtAuthentication)
 		.addFilterBefore(new JwtAuthorization(), UsernamePasswordAuthenticationFilter.class);
