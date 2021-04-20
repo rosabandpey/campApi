@@ -1,5 +1,8 @@
 package com.camp.campApi.security;
 
+import com.camp.campApi.exception.ApiException;
+import com.camp.campApi.exception.GlobalExceptionHandler;
+import com.camp.campApi.exception.JwtAuthEntryPoint;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Configuration;
@@ -31,6 +34,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 
+	@Autowired
+	private JwtAuthEntryPoint unauthorizedHandler;
+
 	public void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth
 		.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder);
@@ -49,7 +55,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			 //   .antMatchers("/","/**").permitAll()
 				.authorizeRequests().antMatchers(PUBLIC_MATCHERS).permitAll()
 				.anyRequest().authenticated()
-
+		.and()
+				.exceptionHandling().authenticationEntryPoint(unauthorizedHandler)
+				
 		.and()
 		.addFilter(jwtAuthentication)
 		.addFilterBefore(new JwtAuthorization(), UsernamePasswordAuthenticationFilter.class);

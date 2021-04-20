@@ -1,5 +1,7 @@
 package com.camp.campApi.exception;
 
+import com.auth0.jwt.exceptions.JWTDecodeException;
+import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.camp.campApi.entity.ErrorMessage;
 import com.camp.campApi.entity.ResponseApi;
 import com.camp.campApi.service.ResponseService;
@@ -17,6 +19,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import javax.servlet.ServletException;
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
@@ -49,6 +53,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(responseApi,HttpStatus.NOT_FOUND);
     }
 
+
     @ExceptionHandler(Exception.class)
     public ResponseEntity<?> exception(Exception exception,WebRequest request)
     {
@@ -58,6 +63,12 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         ResponseApi responseApi=new ResponseApi(false,exception.getMessage(),new Date().toString(),null);
         return new ResponseEntity<>(responseApi,HttpStatus.INTERNAL_SERVER_ERROR);
     }
+
+
+
+
+
+
 
 
 }

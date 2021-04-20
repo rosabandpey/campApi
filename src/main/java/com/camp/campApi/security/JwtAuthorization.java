@@ -10,6 +10,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.auth0.jwt.exceptions.JWTDecodeException;
+import com.auth0.jwt.exceptions.JWTVerificationException;
+import com.camp.campApi.exception.ApiException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -22,6 +25,7 @@ import com.auth0.jwt.interfaces.DecodedJWT;
 
 public class JwtAuthorization extends OncePerRequestFilter {
 
+	public DecodedJWT jwt;
 	@Override
 	public void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
 			throws ServletException, IOException {
@@ -49,7 +53,7 @@ public class JwtAuthorization extends OncePerRequestFilter {
 				return;
 			}
 			JWT.require(Algorithm.HMAC256(SecurityConstants.SECRET));
-			DecodedJWT jwt = JWT.decode(jwtToken.substring(SecurityConstants.TOKEN_PREFIX.length()));
+			jwt = JWT.decode(jwtToken.substring(SecurityConstants.TOKEN_PREFIX.length()));
 			String username = jwt.getSubject();
 			List<String> roles = jwt.getClaims().get("roles").asList(String.class);
 			Collection<GrantedAuthority> authorities = new ArrayList<>();

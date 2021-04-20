@@ -33,6 +33,9 @@ public class ErrorMessage implements Serializable {
         this.date = date;
     }
 
+    public ErrorMessage(String you_must_authenticated) {
+    }
+
     public Long getId() {
         return id;
     }
