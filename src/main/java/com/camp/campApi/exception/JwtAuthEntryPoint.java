@@ -63,5 +63,4 @@ public class JwtAuthEntryPoint implements AuthenticationEntryPoint {
 
     }
 
-
 }

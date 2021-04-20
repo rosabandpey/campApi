@@ -3,6 +3,7 @@ package com.camp.campApi.security;
 import com.camp.campApi.exception.ApiException;
 import com.camp.campApi.exception.GlobalExceptionHandler;
 import com.camp.campApi.exception.JwtAuthEntryPoint;
+import com.camp.campApi.exception.RestAccessDeniedHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Configuration;
@@ -36,6 +37,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	private JwtAuthEntryPoint unauthorizedHandler;
+	@Autowired
+	private RestAccessDeniedHandler restAccessDeniedHandler;
 
 	public void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth
@@ -56,7 +59,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.authorizeRequests().antMatchers(PUBLIC_MATCHERS).permitAll()
 				.anyRequest().authenticated()
 		.and()
-				.exceptionHandling().authenticationEntryPoint(unauthorizedHandler)
+				.exceptionHandling().accessDeniedHandler(restAccessDeniedHandler).authenticationEntryPoint(unauthorizedHandler)
 
 		.and()
 		.addFilter(jwtAuthentication)
