@@ -1,6 +1,7 @@
 package com.camp.campApi.security;
 
 import java.io.IOException;
+import java.security.SignatureException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -52,8 +53,17 @@ public class JwtAuthorization extends OncePerRequestFilter {
 				filterChain.doFilter(request, response);
 				return;
 			}
+
+		//	try {
+
 			JWT.require(Algorithm.HMAC256(SecurityConstants.SECRET));
 			jwt = JWT.decode(jwtToken.substring(SecurityConstants.TOKEN_PREFIX.length()));
+/*
+		} catch (IllegalArgumentException e) {
+			logger.error("an error occured during getting username from token", e);
+		} catch (JWTVerificationException e) {
+			logger.warn("the token is expired and not valid anymore", e);
+		} */
 			String username = jwt.getSubject();
 			List<String> roles = jwt.getClaims().get("roles").asList(String.class);
 			Collection<GrantedAuthority> authorities = new ArrayList<>();
