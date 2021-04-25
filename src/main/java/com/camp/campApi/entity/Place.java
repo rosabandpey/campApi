@@ -41,7 +41,9 @@ public class Place implements Serializable {
     public Place() {
     }
 
-
+    public Place(String placeName) {
+        this.placeName = placeName;
+    }
 
     public Place(long id, String placeName, String parentName, Set<Place> parent, Place place) {
         this.id = id;
