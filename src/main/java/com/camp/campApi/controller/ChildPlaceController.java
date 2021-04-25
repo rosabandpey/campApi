@@ -33,9 +33,9 @@ public class ChildPlaceController {
 
 
 
-    @PostMapping(value = "/savePlace/{placeName}/{username}")
+    @PostMapping(value = "/savePlace")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<?> savePlace(@RequestBody ChildPlace childPlace, @PathVariable("placeName") String placeName, @PathVariable("username") String username)  {
+    public ResponseEntity<?> savePlace(@RequestBody ChildPlace childPlace, @RequestParam() String placeName, @RequestParam() String username)  {
 
         ChildPlace place=childPlaceService.registerChildPlace(childPlace,placeName,username);
         ResponseApi responseApi=new ResponseApi(true,HttpStatus.OK.toString(),new Date().toString(), Arrays.asList(place) );
