@@ -33,10 +33,7 @@ public class ChildPlaceController {
 
 
 
-    @PostMapping(value = "/savePlace")
-    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> savePlace(@RequestBody ChildPlace childPlace, @RequestParam() String placeName, @RequestParam() String username)  {
-
         ChildPlace place=childPlaceService.registerChildPlace(childPlace,placeName,username);
         ResponseApi responseApi=new ResponseApi(true,HttpStatus.OK.toString(),new Date().toString(), Arrays.asList(place) );
         return new ResponseEntity<>(responseApi,HttpStatus.OK );
