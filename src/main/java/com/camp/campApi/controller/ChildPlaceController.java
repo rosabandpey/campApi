@@ -11,6 +11,7 @@ import com.camp.campApi.service.ChildPlaceService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
@@ -33,11 +34,15 @@ public class ChildPlaceController {
 
 
 
-    public ResponseEntity<?> savePlace(@RequestBody ChildPlace childPlace, @RequestParam() String placeName, @RequestParam() String username)  {
+    @RequestMapping(value = "/savePlace/{username}/{placeName}",produces ={ MediaType.APPLICATION_JSON_VALUE},method = {RequestMethod.GET,RequestMethod.POST} )
+    public ResponseEntity<?> savePlace(@RequestBody ChildPlace childPlace, @PathVariable("placeName") String placeName, @PathVariable("username") String username)  {
         ChildPlace place=childPlaceService.registerChildPlace(childPlace,placeName,username);
         ResponseApi responseApi=new ResponseApi(true,HttpStatus.OK.toString(),new Date().toString(), Arrays.asList(place) );
         return new ResponseEntity<>(responseApi,HttpStatus.OK );
     }
+
+
+
 
     @GetMapping(value = "/findPlaceByName/{findPlaceByName}")
     public ResponseEntity<?> findPlaceByName(@PathVariable("findPlaceByName") String childName)
