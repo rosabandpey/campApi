@@ -21,18 +21,44 @@ public class ChildPlace implements Serializable {
 
 
     @ManyToOne
-    @JsonIgnore
+   // @JsonIgnore
     @JoinColumn(name = "place_id",nullable = false)
     private Place mychildplace;
 
 
     @ManyToOne
-    @JsonIgnore
+   // @JsonIgnore
     @JoinColumn(name = "user_id",nullable = false)
     private AppUser userChildPlace;
 
 
     public ChildPlace() {
+    }
+
+    public ChildPlace(long id, String childName, String childLocation, String childDetails, String childCountry, String childCity, String childAddress, int childCellSignal, Date childLastVisit, int childCrowdness, int childManNoise, int childCleanness, int childSafty, int childWater, int childElectronic, int childShower, int childTrash, int childPicnicTable, int childToilet, int childWifi, int childFirePits, int childPetAllowed, int childADAaccessible) {
+        this.id = id;
+        this.childName = childName;
+        this.childLocation = childLocation;
+        this.childDetails = childDetails;
+        this.childCountry = childCountry;
+        this.childCity = childCity;
+        this.childAddress = childAddress;
+        this.childCellSignal = childCellSignal;
+        this.childLastVisit = childLastVisit;
+        this.childCrowdness = childCrowdness;
+        this.childManNoise = childManNoise;
+        this.childCleanness = childCleanness;
+        this.childSafty = childSafty;
+        this.childWater = childWater;
+        this.childElectronic = childElectronic;
+        this.childShower = childShower;
+        this.childTrash = childTrash;
+        this.childPicnicTable = childPicnicTable;
+        this.childToilet = childToilet;
+        this.childWifi = childWifi;
+        this.childFirePits = childFirePits;
+        this.childPetAllowed = childPetAllowed;
+        this.childADAaccessible = childADAaccessible;
     }
 
     public ChildPlace(long id, Place mychildplace, String childName, String childLocation, String childDetails, String childCountry, String childCity, String childAddress, int childCellSignal, Date childLastVisit, int childCrowdness, int childManNoise, int childCleanness, int childSafty, int childWater, int childElectronic, int childShower, int childTrash, int childPicnicTable, int childToilet, int childWifi, int childFirePits, int childPetAllowed, int childADAaccessible) {

@@ -12,7 +12,7 @@ public interface PlaceRepo extends JpaRepository<Place,Long> {
 
 
     public Place findPlaceByPlaceName(String placeName);
-
+    public Place findPlaceById(long id);
 
     @Query("select new Place(p.placeName) from Place p")
     public List<Place> findAllPlaceName();

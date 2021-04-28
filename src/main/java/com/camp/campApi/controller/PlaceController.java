@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -27,6 +28,16 @@ public class PlaceController {
 
         List<Place> places=placeService.findAllPlace();
         ResponseApi responseApi=new ResponseApi(true, HttpStatus.OK.toString(),new Date().toString(), places);
+        return new ResponseEntity<>(responseApi,HttpStatus.OK);
+
+    }
+
+    @GetMapping("/findPlace")
+    public ResponseEntity<?> findPlace(long id)  {
+
+        Place place=placeService.findPlaceById(id);
+
+        ResponseApi responseApi=new ResponseApi(true, HttpStatus.OK.toString(),new Date().toString(), Arrays.asList(place));
         return new ResponseEntity<>(responseApi,HttpStatus.OK);
 
     }
