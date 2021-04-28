@@ -25,11 +25,8 @@ public class ChildPlaceServiceImpl implements ChildPlaceService {
     UserRepo userRepo;
 
     @Override
-    public ChildPlace registerChildPlace(ChildPlace childPlace,String placeName,String username) {
+    public ChildPlace registerChildPlace(ChildPlace childPlace) {
 
-
-        childPlace.setMychildplace(placeRepo.findPlaceByPlaceName(placeName));
-        childPlace.setUserChildPlace(userRepo.findAppUserByUsername(username));
     return  childPlaceRepo.save(childPlace);
     }
 
