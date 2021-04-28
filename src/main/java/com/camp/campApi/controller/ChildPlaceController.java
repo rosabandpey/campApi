@@ -34,7 +34,7 @@ public class ChildPlaceController {
 
 
 
-    @RequestMapping(value = "/savePlace/{username}/{placeName}",produces ={ MediaType.APPLICATION_JSON_VALUE},method = {RequestMethod.GET,RequestMethod.POST} )
+    @RequestMapping(value = "/savePlace",produces ={ MediaType.APPLICATION_JSON_VALUE},method = {RequestMethod.GET,RequestMethod.POST} )
     public ResponseEntity<?> savePlace(@RequestBody ChildPlace childPlace)  {
         ChildPlace place=childPlaceService.registerChildPlace(childPlace);
         ResponseApi responseApi=new ResponseApi(true,HttpStatus.OK.toString(),new Date().toString(), Arrays.asList(place) );
