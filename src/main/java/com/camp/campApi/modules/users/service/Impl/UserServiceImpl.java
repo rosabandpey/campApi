@@ -1,12 +1,12 @@
-package com.camp.campApi.service.impl;
+package com.camp.campApi.modules.users.service.Impl;
 
-import com.camp.campApi.entity.AppUser;
-import com.camp.campApi.entity.UserRole;
+import com.camp.campApi.modules.users.service.UserService;
+import com.camp.campApi.modules.users.entity.AppUser;
+import com.camp.campApi.modules.users.entity.UserRole;
 import com.camp.campApi.exception.ApiException;
 import com.camp.campApi.exception.NotFoundException;
-import com.camp.campApi.repository.RoleRepo;
-import com.camp.campApi.repository.UserRepo;
-import com.camp.campApi.service.UserService;
+import com.camp.campApi.modules.users.repository.RoleRepo;
+import com.camp.campApi.modules.users.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package com.camp.campApi.entity;
+package com.camp.campApi.modules.users.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;

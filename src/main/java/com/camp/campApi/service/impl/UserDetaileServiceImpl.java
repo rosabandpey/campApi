@@ -1,9 +1,9 @@
 package com.camp.campApi.service.impl;
 
-import com.camp.campApi.entity.AppUser;
-import com.camp.campApi.entity.UserRole;
-import com.camp.campApi.repository.RoleRepo;
-import com.camp.campApi.repository.UserRepo;
+import com.camp.campApi.modules.users.entity.AppUser;
+import com.camp.campApi.modules.users.entity.UserRole;
+import com.camp.campApi.modules.users.repository.RoleRepo;
+import com.camp.campApi.modules.users.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -16,7 +16,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.Set;
 
 @Service

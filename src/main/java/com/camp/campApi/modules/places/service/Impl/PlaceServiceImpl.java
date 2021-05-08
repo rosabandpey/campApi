@@ -1,8 +1,8 @@
-package com.camp.campApi.service.impl;
+package com.camp.campApi.modules.places.service.Impl;
 
-import com.camp.campApi.entity.Place;
-import com.camp.campApi.repository.PlaceRepo;
-import com.camp.campApi.service.PlaceService;
+import com.camp.campApi.modules.places.entity.Place;
+import com.camp.campApi.modules.places.repository.PlaceRepo;
+import com.camp.campApi.modules.places.service.PlaceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

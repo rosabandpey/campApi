@@ -1,26 +1,17 @@
-package com.camp.campApi.controller;
+package com.camp.campApi.modules.users.controller;
 
 
-import com.camp.campApi.entity.AppUser;
+import com.camp.campApi.modules.users.entity.AppUser;
 import com.camp.campApi.entity.ResponseApi;
-import com.camp.campApi.exception.NotFoundException;
-import com.camp.campApi.service.ResponseService;
-import com.camp.campApi.service.UserService;
-import com.sun.xml.bind.v2.runtime.unmarshaller.XsiNilLoader;
+import com.camp.campApi.modules.users.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.web.bind.annotation.*;
 
 
-import javax.websocket.server.PathParam;
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;

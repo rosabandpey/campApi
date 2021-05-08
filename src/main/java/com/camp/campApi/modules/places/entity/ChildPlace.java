@@ -1,12 +1,10 @@
-package com.camp.campApi.entity;
+package com.camp.campApi.modules.places.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.camp.campApi.modules.users.entity.AppUser;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 //@Table(name="child")

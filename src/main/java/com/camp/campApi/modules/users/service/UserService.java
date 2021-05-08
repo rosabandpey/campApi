@@ -1,8 +1,6 @@
-package com.camp.campApi.service;
+package com.camp.campApi.modules.users.service;
 
-import com.camp.campApi.entity.AppUser;
-import com.camp.campApi.entity.Role;
-import org.springframework.stereotype.Service;
+import com.camp.campApi.modules.users.entity.AppUser;
 
 import java.util.List;
 

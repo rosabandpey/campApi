@@ -1,5 +1,7 @@
-package com.camp.campApi.entity;
+package com.camp.campApi.modules.users.entity;
 
+import com.camp.campApi.modules.users.entity.AppUser;
+import com.camp.campApi.modules.users.entity.Role;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;

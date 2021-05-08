@@ -1,4 +1,4 @@
-package com.camp.campApi.entity;
+package com.camp.campApi.modules.places.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 

@@ -1,6 +1,6 @@
-package com.camp.campApi.repository;
+package com.camp.campApi.modules.places.repository;
 
-import com.camp.campApi.entity.Place;
+import com.camp.campApi.modules.places.entity.Place;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

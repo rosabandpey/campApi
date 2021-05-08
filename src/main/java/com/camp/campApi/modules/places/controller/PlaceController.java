@@ -1,13 +1,11 @@
-package com.camp.campApi.controller;
+package com.camp.campApi.modules.places.controller;
 
-import com.camp.campApi.entity.AppUser;
-import com.camp.campApi.entity.Place;
+import com.camp.campApi.modules.places.entity.Place;
 import com.camp.campApi.entity.ResponseApi;
-import com.camp.campApi.service.PlaceService;
+import com.camp.campApi.modules.places.service.PlaceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

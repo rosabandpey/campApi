@@ -1,7 +1,6 @@
-package com.camp.campApi.service;
+package com.camp.campApi.modules.places.service;
 
-import com.camp.campApi.entity.ChildPlace;
-import com.camp.campApi.entity.Place;
+import com.camp.campApi.modules.places.entity.Place;
 
 import java.util.List;
 

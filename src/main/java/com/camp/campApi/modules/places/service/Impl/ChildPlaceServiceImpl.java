@@ -1,10 +1,10 @@
-package com.camp.campApi.service.impl;
+package com.camp.campApi.modules.places.service.Impl;
 
-import com.camp.campApi.entity.ChildPlace;
-import com.camp.campApi.repository.ChildPlaceRepo;
-import com.camp.campApi.repository.PlaceRepo;
-import com.camp.campApi.repository.UserRepo;
-import com.camp.campApi.service.ChildPlaceService;
+import com.camp.campApi.modules.places.entity.ChildPlace;
+import com.camp.campApi.modules.places.repository.ChildPlaceRepo;
+import com.camp.campApi.modules.places.repository.PlaceRepo;
+import com.camp.campApi.modules.places.service.ChildPlaceService;
+import com.camp.campApi.modules.users.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

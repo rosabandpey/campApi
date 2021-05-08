@@ -1,4 +1,6 @@
-package com.camp.campApi.entity;
+package com.camp.campApi.modules.users.entity;
+
+import com.camp.campApi.modules.places.entity.ChildPlace;
 
 import javax.persistence.*;
 import java.io.Serializable;
