@@ -18,20 +18,19 @@ import java.util.List;
 @Transactional
 public class UserServiceImpl implements UserService {
 
-
-    @Autowired
     private UserRepo userRepo;
-
-    @Autowired
     private RoleRepo roleRepo;
-
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
+    public UserServiceImpl(UserRepo userRepo,RoleRepo roleRepo,BCryptPasswordEncoder bCryptPasswordEncoder) {
+        this.userRepo = userRepo;
+        this.roleRepo=roleRepo;
+        this.bCryptPasswordEncoder=bCryptPasswordEncoder;
+    }
 
 
     @Override
-
     public AppUser register(AppUser appUser) {
 
         appUser.setPassword(bCryptPasswordEncoder.encode(appUser.getPassword()));

@@ -1,5 +1,8 @@
 package com.camp.campApi.modules.users.entity;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
@@ -7,6 +10,7 @@ import java.util.Set;
 
 @Entity
 @Table(name="role")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Role implements Serializable {
 
     private static final long serialVersionUID  = -8109015272289072306L;
@@ -47,6 +51,11 @@ public class Role implements Serializable {
         this.roleName = roleName;
     }
 
+    public Set<UserRole> getUserRole() {
+        return userRole;
+    }
 
-
+    public void setUserRole(Set<UserRole> userRole) {
+        this.userRole = userRole;
+    }
 }

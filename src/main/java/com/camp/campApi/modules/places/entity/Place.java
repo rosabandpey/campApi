@@ -1,6 +1,6 @@
 package com.camp.campApi.modules.places.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -9,6 +9,7 @@ import java.util.Set;
 
 @Entity
 @Table(name="place")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Place implements Serializable {
 
     private static final long serialVersionUID = -121838495708416152L;
@@ -25,6 +26,7 @@ public class Place implements Serializable {
     private String parentName;
 
     @OneToMany(mappedBy = "place")
+    @JsonIgnore
     private Set<Place> parent=new HashSet<>();
 
 

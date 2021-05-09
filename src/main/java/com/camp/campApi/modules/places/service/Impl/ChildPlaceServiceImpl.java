@@ -15,14 +15,17 @@ import java.util.List;
 @Service
 public class ChildPlaceServiceImpl implements ChildPlaceService {
 
-    @Autowired
+
     ChildPlaceRepo childPlaceRepo;
-
-    @Autowired
     PlaceRepo placeRepo;
+    UserRepo userRepo;
 
     @Autowired
-    UserRepo userRepo;
+    public ChildPlaceServiceImpl(ChildPlaceRepo childPlaceRepo, PlaceRepo placeRepo, UserRepo userRepo) {
+        this.childPlaceRepo = childPlaceRepo;
+        this.placeRepo = placeRepo;
+        this.userRepo = userRepo;
+    }
 
     @Override
     public ChildPlace registerChildPlace(ChildPlace childPlace) {

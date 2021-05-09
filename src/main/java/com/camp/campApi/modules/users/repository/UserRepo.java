@@ -2,7 +2,9 @@ package com.camp.campApi.modules.users.repository;
 
 import com.camp.campApi.modules.users.entity.AppUser;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface UserRepo  extends JpaRepository<AppUser,Long> {
 
     public AppUser findAppUserByUsername(String username);

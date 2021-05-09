@@ -18,11 +18,13 @@ import java.util.List;
 @RequestMapping(value = "/api/childPlace")
 public class ChildPlaceController {
 
-    @Autowired
+
     ChildPlaceService childPlaceService;
 
-
-
+    @Autowired
+    public ChildPlaceController(ChildPlaceService childPlaceService) {
+        this.childPlaceService = childPlaceService;
+    }
 
     @RequestMapping(value = "/savePlace",produces ={ MediaType.APPLICATION_JSON_VALUE},method = {RequestMethod.GET,RequestMethod.POST} )
     public ResponseEntity<?> savePlace(@RequestBody ChildPlace childPlace)  {

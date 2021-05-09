@@ -4,7 +4,9 @@ import com.camp.campApi.modules.places.entity.ChildPlace;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface ChildPlaceRepo extends JpaRepository<ChildPlace,Long> {
 
     public ChildPlace findChildPlaceById(long id);

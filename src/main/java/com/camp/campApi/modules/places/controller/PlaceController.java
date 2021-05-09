@@ -19,8 +19,13 @@ import java.util.List;
 @RequestMapping(value = "/api/Places")
 public class PlaceController {
 
-    @Autowired
+
     PlaceService placeService;
+
+    @Autowired
+    public PlaceController(PlaceService placeService) {
+        this.placeService = placeService;
+    }
 
     @GetMapping("/placeList")
     public ResponseEntity<?> placeList()  {

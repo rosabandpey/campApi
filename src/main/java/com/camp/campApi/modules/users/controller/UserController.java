@@ -21,9 +21,13 @@ import java.util.List;
 @RequestMapping(value = "/api/authenticate")
 public class UserController {
 
-    @Autowired
+
     private UserService userService;
 
+    @Autowired
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
 
     @RequestMapping(value = "/register",method = {RequestMethod.GET,RequestMethod.POST},produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<?>  register(@RequestBody AppUser appUser) {

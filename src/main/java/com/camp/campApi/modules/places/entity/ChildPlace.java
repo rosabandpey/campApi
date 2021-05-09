@@ -1,6 +1,9 @@
 package com.camp.campApi.modules.places.entity;
 
 import com.camp.campApi.modules.users.entity.AppUser;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -8,7 +11,9 @@ import java.util.Date;
 
 @Entity
 //@Table(name="child")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class ChildPlace implements Serializable {
+
 
     private static final long serialVersionUID = -121838495708416147L;
 
@@ -21,12 +26,14 @@ public class ChildPlace implements Serializable {
     @ManyToOne
    // @JsonIgnore
     @JoinColumn(name = "place_id",nullable = false)
+    @JsonIdentityReference(alwaysAsId = true)
     private Place mychildplace;
 
 
     @ManyToOne
    // @JsonIgnore
     @JoinColumn(name = "user_id",nullable = false)
+    @JsonIdentityReference(alwaysAsId = true)
     private AppUser userChildPlace;
 
 

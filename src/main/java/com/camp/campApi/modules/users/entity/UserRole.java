@@ -2,7 +2,9 @@ package com.camp.campApi.modules.users.entity;
 
 import com.camp.campApi.modules.users.entity.AppUser;
 import com.camp.campApi.modules.users.entity.Role;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
 import java.io.Serializable;

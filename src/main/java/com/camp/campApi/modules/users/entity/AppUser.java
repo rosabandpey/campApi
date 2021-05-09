@@ -1,6 +1,9 @@
 package com.camp.campApi.modules.users.entity;
 
 import com.camp.campApi.modules.places.entity.ChildPlace;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -11,6 +14,8 @@ import java.util.Set;
 
 @Entity
 @Table(name="appuser")
+
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class AppUser implements Serializable {
 
     private static final long serialVersionUID = -6955836358739196276L;
