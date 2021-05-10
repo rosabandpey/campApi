@@ -29,6 +29,7 @@ public class AppUser implements Serializable {
     private String firstName;
 
     @Column(nullable = false)
+
     private String lastName;
 
     @Column(nullable = false)
