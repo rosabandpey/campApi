@@ -31,7 +31,7 @@ public class Place implements Serializable {
 
 
     @OneToMany(mappedBy = "mychildplace")
-    private Set<ChildPlace> mychildplace=new HashSet<>();
+    private Set<ChildPlaceEntity> mychildplace=new HashSet<>();
 
 
     @ManyToOne

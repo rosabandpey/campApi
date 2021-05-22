@@ -1,8 +1,7 @@
 package com.camp.campApi.modules.users.entity;
 
-import com.camp.campApi.modules.places.entity.ChildPlace;
+import com.camp.campApi.modules.places.entity.ChildPlaceEntity;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
@@ -45,7 +44,7 @@ public class AppUser implements Serializable {
     private Set<UserRole> userRoles=new HashSet<>();
 
     @OneToMany(mappedBy ="userChildPlace" )
-    private Set<ChildPlace> userChildPlaces=new HashSet<>();
+    private Set<ChildPlaceEntity> userChildPlaces=new HashSet<>();
 
 
 

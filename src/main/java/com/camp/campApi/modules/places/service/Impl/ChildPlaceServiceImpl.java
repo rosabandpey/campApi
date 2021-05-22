@@ -1,6 +1,6 @@
 package com.camp.campApi.modules.places.service.Impl;
 
-import com.camp.campApi.modules.places.entity.ChildPlace;
+import com.camp.campApi.modules.places.entity.ChildPlaceEntity;
 import com.camp.campApi.modules.places.repository.ChildPlaceRepo;
 import com.camp.campApi.modules.places.repository.PlaceRepo;
 import com.camp.campApi.modules.places.service.ChildPlaceService;
@@ -28,39 +28,39 @@ public class ChildPlaceServiceImpl implements ChildPlaceService {
     }
 
     @Override
-    public ChildPlace registerChildPlace(ChildPlace childPlace) {
+    public ChildPlaceEntity registerChildPlace(ChildPlaceEntity childPlace) {
 
     return  childPlaceRepo.save(childPlace);
     }
 
     @Override
-    public ChildPlace updateChildPlace(long id, String name, String country) {
-        ChildPlace place=childPlaceRepo.updateChildPlaceById(id,name,country);
+    public ChildPlaceEntity updateChildPlace(long id, String name, String country) {
+        ChildPlaceEntity place=childPlaceRepo.updateChildPlaceById(id,name,country);
         return place;
     }
 
 
     @Override
-    public List<ChildPlace> findAllChildPlace() {
-       List<ChildPlace> childPlaceList=childPlaceRepo.findAll();
+    public List<ChildPlaceEntity> findAllChildPlace() {
+       List<ChildPlaceEntity> childPlaceList=childPlaceRepo.findAll();
        return childPlaceList;
     }
 
     @Override
-    public ChildPlace findChildPlaceByName(String childName) {
-        ChildPlace childPlace=childPlaceRepo.findChildPlaceByChildName(childName);
+    public ChildPlaceEntity findChildPlaceByName(String childName) {
+        ChildPlaceEntity childPlace=childPlaceRepo.findChildPlaceByChildName(childName);
         return childPlace;
     }
 
     @Override
-    public ChildPlace findChildPlaceById(long id) {
-        ChildPlace childPlace=childPlaceRepo.findChildPlaceById(id);
+    public ChildPlaceEntity findChildPlaceById(long id) {
+        ChildPlaceEntity childPlace=childPlaceRepo.findChildPlaceById(id);
         return childPlace;
     }
 
     @Override
-    public ChildPlace deleteChildPlace(long id) {
-        ChildPlace childPlace=childPlaceRepo.deleteChildPlaceById(id);
+    public ChildPlaceEntity deleteChildPlace(long id) {
+        ChildPlaceEntity childPlace=childPlaceRepo.deleteChildPlaceById(id);
         return childPlace;
     }
 }

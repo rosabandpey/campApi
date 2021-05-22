@@ -1,63 +1,47 @@
 package com.camp.campApi.modules.places.entity;
 
+import com.camp.campApi.modules.users.entity.AppUser;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
-public class ChildPlaceResponse {
+@Entity
+//@Table(name="child")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+public class ChildPlaceEntity implements Serializable {
 
+
+    private static final long serialVersionUID = -121838495708416147L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false, updatable = false)
     private long id;
 
-    private long mychildplace;
 
-    private long userChildPlace;
+    @ManyToOne
+   // @JsonIgnore
+    @JoinColumn(name = "place_id",nullable = false)
+    @JsonIdentityReference(alwaysAsId = true)
+    private Place mychildplace;
 
-    private String childName;
 
-    private String childLocation;
+    @ManyToOne
+   // @JsonIgnore
+    @JoinColumn(name = "user_id",nullable = false)
+    @JsonIdentityReference(alwaysAsId = true)
+    private AppUser userChildPlace;
 
-    private String childDetails;
 
-    private String childCountry;
-
-    private String childCity;
-
-    private String childAddress;
-
-    private int childCellSignal;
-
-    private Date childLastVisit;
-
-    private int childCrowdness;
-
-    private int childManNoise;
-
-    private int childCleanness;
-
-    private int childSafty;
-
-    private int childWater;
-
-    private int childElectronic;
-
-    private int childShower;
-
-    private int childTrash;
-
-    private int childPicnicTable;
-
-    private int childToilet;
-
-    private int childWifi;
-
-    private int childFirePits;
-
-    private int childPetAllowed;
-
-    private int childADAaccessible;
-
-    public ChildPlaceResponse() {
+    public ChildPlaceEntity() {
     }
 
-    public ChildPlaceResponse(long id, long mychildplace, long userChildPlace, String childName, String childLocation, String childDetails, String childCountry, String childCity, String childAddress, int childCellSignal, Date childLastVisit, int childCrowdness, int childManNoise, int childCleanness, int childSafty, int childWater, int childElectronic, int childShower, int childTrash, int childPicnicTable, int childToilet, int childWifi, int childFirePits, int childPetAllowed, int childADAaccessible) {
+
+    public ChildPlaceEntity(long id, Place mychildplace, AppUser userChildPlace, String childName, String childLocation, String childDetails, String childCountry, String childCity, String childAddress, int childCellSignal, Date childLastVisit, int childCrowdness, int childManNoise, int childCleanness, int childSafty, int childWater, int childElectronic, int childShower, int childTrash, int childPicnicTable, int childToilet, int childWifi, int childFirePits, int childPetAllowed, int childADAaccessible) {
         this.id = id;
         this.mychildplace = mychildplace;
         this.userChildPlace = userChildPlace;
@@ -85,6 +69,70 @@ public class ChildPlaceResponse {
         this.childADAaccessible = childADAaccessible;
     }
 
+    @Column(unique = true,nullable = false)
+    private String childName;
+
+    @Column(nullable = false)
+    private String childLocation;
+
+    private String childDetails;
+
+    @Column(nullable = false)
+    private String childCountry;
+
+    @Column(nullable = false)
+    private String childCity;
+
+    @Column(nullable = false)
+    private String childAddress;
+
+    @Column(nullable = false)
+    private int childCellSignal;
+
+    private Date childLastVisit;
+
+    @Column(nullable = false)
+    private int childCrowdness;
+
+    @Column(nullable = false)
+    private int childManNoise;
+
+    @Column(nullable = false)
+    private int childCleanness;
+
+    @Column(nullable = false)
+    private int childSafty;
+
+    @Column(nullable = false)
+    private int childWater;
+
+    @Column(nullable = false)
+    private int childElectronic;
+
+    @Column(nullable = false)
+    private int childShower;
+
+    @Column(nullable = false)
+    private int childTrash;
+
+    @Column(nullable = false)
+    private int childPicnicTable;
+
+    @Column(nullable = false)
+    private int childToilet;
+
+    @Column(nullable = false)
+    private int childWifi;
+
+    @Column(nullable = false)
+    private int childFirePits;
+
+    @Column(nullable = false)
+    private int childPetAllowed;
+
+    @Column(nullable = false)
+    private int childADAaccessible;
+
     public long getId() {
         return id;
     }
@@ -93,20 +141,12 @@ public class ChildPlaceResponse {
         this.id = id;
     }
 
-    public long getMychildplace() {
+    public Place getMychildplace() {
         return mychildplace;
     }
 
-    public void setMychildplace(long mychildplace) {
+    public void setMychildplace(Place mychildplace) {
         this.mychildplace = mychildplace;
-    }
-
-    public long getUserChildPlace() {
-        return userChildPlace;
-    }
-
-    public void setUserChildPlace(long userChildPlace) {
-        this.userChildPlace = userChildPlace;
     }
 
     public String getChildName() {
@@ -283,5 +323,13 @@ public class ChildPlaceResponse {
 
     public void setChildADAaccessible(int childADAaccessible) {
         this.childADAaccessible = childADAaccessible;
+    }
+
+    public AppUser getUserChildPlace() {
+        return userChildPlace;
+    }
+
+    public void setUserChildPlace(AppUser userChildPlace) {
+        this.userChildPlace = userChildPlace;
     }
 }
