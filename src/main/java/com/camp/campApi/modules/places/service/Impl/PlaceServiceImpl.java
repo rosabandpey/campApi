@@ -20,7 +20,7 @@ public class PlaceServiceImpl implements PlaceService {
 
     @Override
     public List<Place> findAllPlace() {
-        List<Place> places=placeRepo.findAllPlaceName();
+        List<Place> places=placeRepo.findAll();
         return places;
     }
 
