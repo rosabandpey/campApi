@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.security.Principal;
+
 @Transactional
 @Service
 public class ChildPlaceResponseImpl implements ChildPlaceResponseService {
@@ -26,9 +28,9 @@ public class ChildPlaceResponseImpl implements ChildPlaceResponseService {
     ChildPlaceRepo childPlaceRepo;
 
     @Override
-    public void registerChildPlace(ChildPlace childPlace) {
+    public void registerChildPlace(ChildPlace childPlace, Principal principal) {
         Place place=placeRepo.findPlaceById(childPlace.getMychildplace());
-        AppUser appUser=userRepo.findAppUserById(childPlace.getUserChildPlace());
+        AppUser appUser=userRepo.findAppUserByUsername(principal.getName());
         ChildPlaceEntity childPlaceEntity=new ChildPlaceEntity();
         childPlaceEntity.setMychildplace(place);
         childPlaceEntity.setUserChildPlace(appUser);

@@ -16,6 +16,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -42,13 +43,10 @@ public class ChildPlaceController {
         this.childPlaceService = childPlaceService;
     }
 
-    @RequestMapping(value = "/savePlace",produces ={ MediaType.APPLICATION_JSON_VALUE},method = {RequestMethod.GET,RequestMethod.POST} )
-    public ResponseEntity<?> savePlace(@RequestBody ChildPlace childPlace)  {
+    @RequestMapping(value = "/savePlace",produces ={ MediaType.APPLICATION_JSON_VALUE},method = {RequestMethod.POST} )
+    public ResponseEntity<?> savePlace(@RequestBody ChildPlace childPlace, Principal principal)  {
 
-        System.out.println(childPlace.getMychildplace());
-
-
-        childPlaceResponseService.registerChildPlace(childPlace);
+        childPlaceResponseService.registerChildPlace(childPlace,principal);
         ResponseApi responseApi=new ResponseApi(true,HttpStatus.OK.toString(),new Date().toString(), Arrays.asList(childPlace) );
         return new ResponseEntity<>(responseApi,HttpStatus.OK );
     }

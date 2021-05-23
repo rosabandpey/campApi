@@ -3,6 +3,7 @@ package com.camp.campApi.modules.places.entity;
 import com.fasterxml.jackson.annotation.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
@@ -19,8 +20,10 @@ public class Place implements Serializable {
     @Column(nullable = false,updatable = false)
     private long id;
 
+    @NotBlank
     @Column(nullable = false)
     private String placeName;
+
 
     @Column(nullable = false)
     private String parentName;
