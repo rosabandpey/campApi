@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
@@ -25,20 +24,16 @@ public class AppUser implements Serializable {
     @Column(nullable = false,updatable = false)
     private long id;
 
-    @NotBlank
     @Column(nullable = false)
     private String firstName;
 
 
-    @NotBlank
     @Column(nullable = false)
     private String lastName;
 
-    @NotBlank
     @Column(nullable = false)
     private String username;
 
-    @NotBlank
     @Column(nullable = false)
     private String password;
 
