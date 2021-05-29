@@ -72,6 +72,15 @@ public class ChildPlaceController {
     }
 
 
+    @GetMapping(value = "/findPlaceById/{id}")
+    public ResponseEntity<?> findPlaceById(@PathVariable("id")String id)
+    {
+        ChildPlaceEntity place=childPlaceService.findChildPlaceById(Long.parseLong(id));
+        ResponseApi responseApi=new ResponseApi(true,HttpStatus.OK.toString(),new Date().toString(), Arrays.asList(place) );
+        return new ResponseEntity<>(responseApi,HttpStatus.OK );
+    }
+
+
     @DeleteMapping(value = "/deletePlace")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> deletePlace(@PathVariable long id)
