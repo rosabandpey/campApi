@@ -67,7 +67,7 @@ public class ChildPlaceController {
     public ResponseEntity<?> findAllPlaces()
     {
         List<ChildPlaceEntity> places=childPlaceService.findAllChildPlace();
-        ResponseApi responseApi=new ResponseApi(true,HttpStatus.OK.toString(),new Date().toString(), Arrays.asList(places) );
+        ResponseApi responseApi=new ResponseApi(true,HttpStatus.OK.toString(),new Date().toString(), places );
         return new ResponseEntity<>(responseApi,HttpStatus.OK );
     }
 

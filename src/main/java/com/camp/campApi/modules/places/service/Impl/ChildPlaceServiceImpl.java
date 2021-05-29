@@ -42,8 +42,8 @@ public class ChildPlaceServiceImpl implements ChildPlaceService {
 
     @Override
     public List<ChildPlaceEntity> findAllChildPlace() {
-       List<ChildPlaceEntity> childPlaceList=childPlaceRepo.findAll();
-       return childPlaceList;
+       List<ChildPlaceEntity> list=childPlaceRepo.findAll();
+       return list;
     }
 
     @Override

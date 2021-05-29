@@ -8,4 +8,6 @@ import java.security.Principal;
 public interface ChildPlaceResponseService {
 
     public void registerChildPlace(ChildPlace childPlace, Principal principal);
+
+    public ChildPlace findChildPlaceById(long id);
 }

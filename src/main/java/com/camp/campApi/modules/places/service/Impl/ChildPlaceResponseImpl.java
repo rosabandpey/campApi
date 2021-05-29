@@ -58,4 +58,14 @@ public class ChildPlaceResponseImpl implements ChildPlaceResponseService {
         childPlaceRepo.save(childPlaceEntity);
 
     }
+
+    @Override
+    public ChildPlace findChildPlaceById(long id) {
+
+        ChildPlaceEntity childPlaceEntity=childPlaceRepo.findChildPlaceById(id);
+        ChildPlace childPlace=
+        return
+    }
+
+
 }
