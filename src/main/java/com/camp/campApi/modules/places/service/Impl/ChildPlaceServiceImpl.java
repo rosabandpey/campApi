@@ -1,9 +1,12 @@
 package com.camp.campApi.modules.places.service.Impl;
 
+import com.camp.campApi.modules.places.entity.ChildPlace;
 import com.camp.campApi.modules.places.entity.ChildPlaceEntity;
+import com.camp.campApi.modules.places.entity.Place;
 import com.camp.campApi.modules.places.repository.ChildPlaceRepo;
 import com.camp.campApi.modules.places.repository.PlaceRepo;
 import com.camp.campApi.modules.places.service.ChildPlaceService;
+import com.camp.campApi.modules.users.entity.AppUser;
 import com.camp.campApi.modules.users.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,6 +24,8 @@ public class ChildPlaceServiceImpl implements ChildPlaceService {
     PlaceRepo placeRepo;
     UserRepo userRepo;
 
+    ChildPlaceEntity childPlaceEntity;
+
     @Autowired
     public ChildPlaceServiceImpl(ChildPlaceRepo childPlaceRepo, PlaceRepo placeRepo, UserRepo userRepo) {
         this.childPlaceRepo = childPlaceRepo;
@@ -29,9 +34,22 @@ public class ChildPlaceServiceImpl implements ChildPlaceService {
     }
 
     @Override
-    public ChildPlaceEntity registerChildPlace(ChildPlaceEntity childPlace, Principal principal) {
+    public ChildPlaceEntity registerChildPlace(ChildPlace childPlace, Principal principal) {
 
-    return  childPlaceRepo.save(childPlace);
+        AppUser appUser=userRepo.findAppUserByUsername(principal.getName());
+        Place place=placeRepo.findPlaceById(childPlace.getMychildplace());
+
+        if (childPlace.getId() == null)
+        {
+            childPlaceEntity=new ChildPlaceEntity();
+        }
+        else{
+            childPlaceEntity.setId(childPlace.getId());
+        }
+
+        childPlaceEntity.setMychildplace(place);
+        childPlaceEntity.setUserChildPlace(appUser);
+        return  childPlaceRepo.save(childPlaceEntity);
     }
 
     @Override

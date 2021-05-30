@@ -12,7 +12,7 @@ public class ChildPlace implements Serializable {
 
     private long mychildplace;
 
-    private long userChildPlace;
+
 
     private String childName;
 
@@ -64,7 +64,7 @@ public class ChildPlace implements Serializable {
     public ChildPlace(Long id, long mychildplace, long userChildPlace, String childName, String childLocation, String childDetails, String childCountry, String childCity, String childAddress, int childCellSignal, Date childLastVisit, Integer childCrowdness, Integer childManNoise, Integer childCleanness, Integer childSafty, Integer childWater, Integer childElectronic, Integer childShower, Integer childTrash, Integer childPicnicTable, Integer childToilet, Integer childWifi, Integer childFirePits, Integer childPetAllowed, Integer childADAaccessible) {
         this.id = id;
         this.mychildplace = mychildplace;
-        this.userChildPlace = userChildPlace;
+
         this.childName = childName;
         this.childLocation = childLocation;
         this.childDetails = childDetails;
@@ -105,13 +105,7 @@ public class ChildPlace implements Serializable {
         this.mychildplace = mychildplace;
     }
 
-    public long getUserChildPlace() {
-        return userChildPlace;
-    }
 
-    public void setUserChildPlace(long userChildPlace) {
-        this.userChildPlace = userChildPlace;
-    }
 
     public String getChildName() {
         return childName;

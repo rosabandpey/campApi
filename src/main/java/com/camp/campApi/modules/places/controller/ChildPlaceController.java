@@ -1,13 +1,11 @@
 package com.camp.campApi.modules.places.controller;
 
+import com.camp.campApi.modules.places.entity.ChildPlace;
 import com.camp.campApi.modules.places.entity.ChildPlaceEntity;
 import com.camp.campApi.entity.ResponseApi;
-import com.camp.campApi.modules.places.entity.ChildPlace;
-import com.camp.campApi.modules.places.entity.Place;
 import com.camp.campApi.modules.places.service.ChildPlaceResponseService;
 import com.camp.campApi.modules.places.service.ChildPlaceService;
 import com.camp.campApi.modules.places.service.PlaceService;
-import com.camp.campApi.modules.users.entity.AppUser;
 import com.camp.campApi.modules.users.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -47,6 +45,7 @@ public class ChildPlaceController {
     @RequestMapping(value = "/savePlace",produces ={ MediaType.APPLICATION_JSON_VALUE},method = {RequestMethod.POST} )
     public ResponseEntity<?> savePlace(@RequestBody ChildPlace childPlace, Principal principal)  {
 
+        System.out.println(principal.getName());
         childPlaceResponseService.registerChildPlace(childPlace,principal);
         ResponseApi responseApi=new ResponseApi(true,HttpStatus.OK.toString(),new Date().toString(), Arrays.asList(childPlace) );
         return new ResponseEntity<>(responseApi,HttpStatus.OK );

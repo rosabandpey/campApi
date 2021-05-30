@@ -28,18 +28,29 @@ public class ChildPlaceResponseImpl implements ChildPlaceResponseService {
     ChildPlaceRepo childPlaceRepo;
 
     ChildPlaceEntity childPlaceEntity;
+
     @Override
     public void registerChildPlace(ChildPlace childPlace, Principal principal) {
         Place place=placeRepo.findPlaceById(childPlace.getMychildplace());
         AppUser appUser=userRepo.findAppUserByUsername(principal.getName());
-        if (childPlace.getId() == null)
+        System.out.println(childPlace.getId());
+        if ( childPlace.getId()==0)
         {
             childPlaceEntity=new ChildPlaceEntity();
+            setParameters(childPlace, place, appUser);
         }
         else{
-            childPlaceEntity.setId(childPlace.getId());
+
+            childPlaceEntity=childPlaceRepo.findChildPlaceById(childPlace.getId());
+           setParameters(childPlace, place, appUser);
         }
 
+
+            childPlaceRepo.save(childPlaceEntity);
+
+    }
+
+    private void setParameters(ChildPlace childPlace, Place place, AppUser appUser) {
         childPlaceEntity.setMychildplace(place);
         childPlaceEntity.setUserChildPlace(appUser);
         childPlaceEntity.setChildADAaccessible(childPlace.getChildADAaccessible());
@@ -63,9 +74,9 @@ public class ChildPlaceResponseImpl implements ChildPlaceResponseService {
         childPlaceEntity.setChildPicnicTable(childPlace.getChildPicnicTable());
         childPlaceEntity.setChildShower(childPlace.getChildShower());
         childPlaceEntity.setChildToilet(childPlace.getChildToilet());
-        childPlaceRepo.save(childPlaceEntity);
-
     }
 
 
 }
+
+
