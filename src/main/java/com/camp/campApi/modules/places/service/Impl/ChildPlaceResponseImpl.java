@@ -59,13 +59,6 @@ public class ChildPlaceResponseImpl implements ChildPlaceResponseService {
 
     }
 
-    @Override
-    public ChildPlace findChildPlaceById(long id) {
-
-        ChildPlaceEntity childPlaceEntity=childPlaceRepo.findChildPlaceById(id);
-        ChildPlace childPlace=
-        return
-    }
 
 
 }

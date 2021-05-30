@@ -73,11 +73,11 @@ public class ChildPlaceController {
 
 
     @GetMapping(value = "/findPlaceById/{id}")
-    public ResponseEntity<?> findPlaceById(@PathVariable("id")String id)
+    public ChildPlaceEntity findPlaceById(@PathVariable("id")long id)
     {
-        ChildPlaceEntity place=childPlaceService.findChildPlaceById(Long.parseLong(id));
-        ResponseApi responseApi=new ResponseApi(true,HttpStatus.OK.toString(),new Date().toString(), Arrays.asList(place) );
-        return new ResponseEntity<>(responseApi,HttpStatus.OK );
+        ChildPlaceEntity place=childPlaceService.findChildPlaceById(id);
+       // ResponseApi responseApi=new ResponseApi(true,HttpStatus.OK.toString(),new Date().toString(), Arrays.asList(place) );
+        return place;
     }
 
 
