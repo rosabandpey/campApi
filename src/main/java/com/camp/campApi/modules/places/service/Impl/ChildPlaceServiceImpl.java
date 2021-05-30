@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.security.Principal;
 import java.util.List;
 
 @Transactional
@@ -28,7 +29,7 @@ public class ChildPlaceServiceImpl implements ChildPlaceService {
     }
 
     @Override
-    public ChildPlaceEntity registerChildPlace(ChildPlaceEntity childPlace) {
+    public ChildPlaceEntity registerChildPlace(ChildPlaceEntity childPlace, Principal principal) {
 
     return  childPlaceRepo.save(childPlace);
     }

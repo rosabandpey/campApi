@@ -27,11 +27,19 @@ public class ChildPlaceResponseImpl implements ChildPlaceResponseService {
     @Autowired
     ChildPlaceRepo childPlaceRepo;
 
+    ChildPlaceEntity childPlaceEntity;
     @Override
     public void registerChildPlace(ChildPlace childPlace, Principal principal) {
         Place place=placeRepo.findPlaceById(childPlace.getMychildplace());
         AppUser appUser=userRepo.findAppUserByUsername(principal.getName());
-        ChildPlaceEntity childPlaceEntity=new ChildPlaceEntity();
+        if (childPlace.getId() == null)
+        {
+            childPlaceEntity=new ChildPlaceEntity();
+        }
+        else{
+            childPlaceEntity.setId(childPlace.getId());
+        }
+
         childPlaceEntity.setMychildplace(place);
         childPlaceEntity.setUserChildPlace(appUser);
         childPlaceEntity.setChildADAaccessible(childPlace.getChildADAaccessible());
@@ -58,7 +66,6 @@ public class ChildPlaceResponseImpl implements ChildPlaceResponseService {
         childPlaceRepo.save(childPlaceEntity);
 
     }
-
 
 
 }

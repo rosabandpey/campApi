@@ -76,7 +76,6 @@ public class ChildPlaceController {
     public ChildPlaceEntity findPlaceById(@PathVariable("id")long id)
     {
         ChildPlaceEntity place=childPlaceService.findChildPlaceById(id);
-       // ResponseApi responseApi=new ResponseApi(true,HttpStatus.OK.toString(),new Date().toString(), Arrays.asList(place) );
         return place;
     }
 

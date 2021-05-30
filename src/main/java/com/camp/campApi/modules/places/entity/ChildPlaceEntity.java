@@ -72,7 +72,7 @@ public class ChildPlaceEntity implements Serializable {
     }
 
 
-    @Column(unique = true,nullable = false)
+    @Column(nullable = false)
     private String childName;
 
     @Column(nullable = false)
