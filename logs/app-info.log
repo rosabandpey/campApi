@@ -440,3 +440,114 @@ java.lang.NullPointerException: NullError
 [INFO ] 2021-05-31 12:06:41.556 [http-nio-8085-exec-1] [/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 [INFO ] 2021-05-31 12:06:41.556 [http-nio-8085-exec-1] DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 [INFO ] 2021-05-31 12:06:41.559 [http-nio-8085-exec-1] DispatcherServlet - Completed initialization in 2 ms
+[INFO ] 2021-05-31 14:40:38.062 [main] CampApiApplication - Hello this is an info message
+[ERROR] 2021-05-31 14:40:38.062 [main] CampApiApplication - Error Message Logged !!!
+java.lang.NullPointerException: NullError
+	at com.camp.campApi.CampApiApplication.main(CampApiApplication.java:21) [classes/:?]
+[INFO ] 2021-05-31 14:40:39.371 [restartedMain] CampApiApplication - Hello this is an info message
+[ERROR] 2021-05-31 14:40:39.371 [restartedMain] CampApiApplication - Error Message Logged !!!
+java.lang.NullPointerException: NullError
+	at com.camp.campApi.CampApiApplication.main(CampApiApplication.java:21) [classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:567) ~[?:?]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) [spring-boot-devtools-2.4.2.jar:2.4.2]
+[INFO ] 2021-05-31 14:40:39.989 [restartedMain] CampApiApplication - Starting CampApiApplication using Java 12.0.1 on network4 with PID 18944 (J:\jav\campApi\target\classes started by m.bandpey in J:\jav\campApi)
+[INFO ] 2021-05-31 14:40:40.004 [restartedMain] CampApiApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2021-05-31 14:40:40.058 [restartedMain] DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 2021-05-31 14:40:40.058 [restartedMain] DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 2021-05-31 14:40:41.160 [restartedMain] RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[INFO ] 2021-05-31 14:40:41.160 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+[INFO ] 2021-05-31 14:40:41.229 [restartedMain] RepositoryConfigurationExtensionSupport - Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.camp.campApi.modules.places.repository.ChildPlaceRepo. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+[INFO ] 2021-05-31 14:40:41.229 [restartedMain] RepositoryConfigurationExtensionSupport - Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.camp.campApi.modules.places.repository.PlaceRepo. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+[INFO ] 2021-05-31 14:40:41.229 [restartedMain] RepositoryConfigurationExtensionSupport - Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.camp.campApi.modules.users.repository.RoleRepo. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+[INFO ] 2021-05-31 14:40:41.245 [restartedMain] RepositoryConfigurationExtensionSupport - Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.camp.campApi.modules.users.repository.UserRepo. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+[INFO ] 2021-05-31 14:40:41.245 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 72 ms. Found 0 JDBC repository interfaces.
+[INFO ] 2021-05-31 14:40:41.245 [restartedMain] RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[INFO ] 2021-05-31 14:40:41.245 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2021-05-31 14:40:41.330 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 69 ms. Found 4 JPA repository interfaces.
+[INFO ] 2021-05-31 14:40:41.762 [restartedMain] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@36e7edeb' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2021-05-31 14:40:41.778 [restartedMain] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2021-05-31 14:40:42.217 [restartedMain] TomcatWebServer - Tomcat initialized with port(s): 8085 (http)
+[INFO ] 2021-05-31 14:40:42.232 [restartedMain] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8085"]
+[INFO ] 2021-05-31 14:40:42.232 [restartedMain] StandardService - Starting service [Tomcat]
+[INFO ] 2021-05-31 14:40:42.232 [restartedMain] StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.41]
+[INFO ] 2021-05-31 14:40:42.433 [restartedMain] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2021-05-31 14:40:42.433 [restartedMain] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2375 ms
+[INFO ] 2021-05-31 14:40:42.680 [restartedMain] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2021-05-31 14:40:42.749 [restartedMain] Version - HHH000412: Hibernate ORM core version 5.4.27.Final
+[INFO ] 2021-05-31 14:40:42.919 [restartedMain] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] 2021-05-31 14:40:43.081 [restartedMain] HikariDataSource - HikariPool-1 - Starting...
+[INFO ] 2021-05-31 14:40:43.166 [restartedMain] HikariDataSource - HikariPool-1 - Start completed.
+[INFO ] 2021-05-31 14:40:43.182 [restartedMain] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 2021-05-31 14:40:44.415 [restartedMain] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2021-05-31 14:40:44.430 [restartedMain] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2021-05-31 14:40:44.486 [restartedMain] OptionalLiveReloadServer - Unable to start LiveReload server
+[WARN ] 2021-05-31 14:40:45.551 [restartedMain] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 2021-05-31 14:40:45.852 [restartedMain] DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6218acd2, org.springframework.security.web.context.SecurityContextPersistenceFilter@bf1750e, org.springframework.security.web.header.HeaderWriterFilter@56ffb1a9, org.springframework.security.web.authentication.logout.LogoutFilter@f5a4bc2, com.camp.campApi.security.JwtAuthorization@68e71dbb, com.camp.campApi.security.JwtAuthentication@4cc84bf9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@44ef2a3a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@bbd85a6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@169bd801, org.springframework.security.web.session.SessionManagementFilter@1f791bca, org.springframework.security.web.access.ExceptionTranslationFilter@5f3a3195, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2d8430c2]
+[INFO ] 2021-05-31 14:40:45.974 [restartedMain] ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2021-05-31 14:40:46.491 [restartedMain] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8085"]
+[INFO ] 2021-05-31 14:40:46.638 [restartedMain] TomcatWebServer - Tomcat started on port(s): 8085 (http) with context path ''
+[INFO ] 2021-05-31 14:40:46.638 [restartedMain] CampApiApplication - Started CampApiApplication in 7.135 seconds (JVM running for 12.281)
+[INFO ] 2021-05-31 14:51:13.023 [main] CampApiApplication - Hello this is an info message
+[ERROR] 2021-05-31 14:51:13.023 [main] CampApiApplication - Error Message Logged !!!
+java.lang.NullPointerException: NullError
+	at com.camp.campApi.CampApiApplication.main(CampApiApplication.java:21) [classes/:?]
+[INFO ] 2021-05-31 14:51:14.111 [restartedMain] CampApiApplication - Hello this is an info message
+[ERROR] 2021-05-31 14:51:14.111 [restartedMain] CampApiApplication - Error Message Logged !!!
+java.lang.NullPointerException: NullError
+	at com.camp.campApi.CampApiApplication.main(CampApiApplication.java:21) [classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:567) ~[?:?]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) [spring-boot-devtools-2.4.2.jar:2.4.2]
+[INFO ] 2021-05-31 14:51:14.697 [restartedMain] CampApiApplication - Starting CampApiApplication using Java 12.0.1 on network4 with PID 18688 (J:\jav\campApi\target\classes started by m.bandpey in J:\jav\campApi)
+[INFO ] 2021-05-31 14:51:14.712 [restartedMain] CampApiApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2021-05-31 14:51:14.775 [restartedMain] DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 2021-05-31 14:51:14.775 [restartedMain] DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 2021-05-31 14:51:15.888 [restartedMain] RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[INFO ] 2021-05-31 14:51:15.904 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+[INFO ] 2021-05-31 14:51:15.982 [restartedMain] RepositoryConfigurationExtensionSupport - Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.camp.campApi.modules.places.repository.ChildPlaceRepo. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+[INFO ] 2021-05-31 14:51:15.990 [restartedMain] RepositoryConfigurationExtensionSupport - Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.camp.campApi.modules.places.repository.PlaceRepo. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+[INFO ] 2021-05-31 14:51:15.990 [restartedMain] RepositoryConfigurationExtensionSupport - Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.camp.campApi.modules.users.repository.RoleRepo. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+[INFO ] 2021-05-31 14:51:16.000 [restartedMain] RepositoryConfigurationExtensionSupport - Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.camp.campApi.modules.users.repository.UserRepo. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+[INFO ] 2021-05-31 14:51:16.000 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 90 ms. Found 0 JDBC repository interfaces.
+[INFO ] 2021-05-31 14:51:16.020 [restartedMain] RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[INFO ] 2021-05-31 14:51:16.020 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2021-05-31 14:51:16.115 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 82 ms. Found 4 JPA repository interfaces.
+[INFO ] 2021-05-31 14:51:16.596 [restartedMain] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@50b84cc3' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2021-05-31 14:51:16.612 [restartedMain] PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2021-05-31 14:51:17.013 [restartedMain] TomcatWebServer - Tomcat initialized with port(s): 8085 (http)
+[INFO ] 2021-05-31 14:51:17.013 [restartedMain] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8085"]
+[INFO ] 2021-05-31 14:51:17.013 [restartedMain] StandardService - Starting service [Tomcat]
+[INFO ] 2021-05-31 14:51:17.013 [restartedMain] StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.41]
+[INFO ] 2021-05-31 14:51:17.245 [restartedMain] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2021-05-31 14:51:17.245 [restartedMain] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2470 ms
+[INFO ] 2021-05-31 14:51:17.461 [restartedMain] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2021-05-31 14:51:17.514 [restartedMain] Version - HHH000412: Hibernate ORM core version 5.4.27.Final
+[INFO ] 2021-05-31 14:51:17.661 [restartedMain] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] 2021-05-31 14:51:17.762 [restartedMain] HikariDataSource - HikariPool-1 - Starting...
+[INFO ] 2021-05-31 14:51:17.831 [restartedMain] HikariDataSource - HikariPool-1 - Start completed.
+[INFO ] 2021-05-31 14:51:17.846 [restartedMain] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 2021-05-31 14:51:18.833 [restartedMain] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2021-05-31 14:51:18.849 [restartedMain] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2021-05-31 14:51:18.902 [restartedMain] OptionalLiveReloadServer - Unable to start LiveReload server
+[WARN ] 2021-05-31 14:51:20.005 [restartedMain] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 2021-05-31 14:51:20.290 [restartedMain] DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@69d9b925, org.springframework.security.web.context.SecurityContextPersistenceFilter@f6bb546, org.springframework.security.web.header.HeaderWriterFilter@672cba01, org.springframework.security.web.authentication.logout.LogoutFilter@7c05a42a, com.camp.campApi.security.JwtAuthorization@12d25056, com.camp.campApi.security.JwtAuthentication@225554dd, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5d7146a8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@41819283, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@77303d28, org.springframework.security.web.session.SessionManagementFilter@659d3c40, org.springframework.security.web.access.ExceptionTranslationFilter@13821aea, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@d2d693d]
+[INFO ] 2021-05-31 14:51:20.437 [restartedMain] ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2021-05-31 14:51:20.985 [restartedMain] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8085"]
+[INFO ] 2021-05-31 14:51:21.139 [restartedMain] TomcatWebServer - Tomcat started on port(s): 8085 (http) with context path ''
+[INFO ] 2021-05-31 14:51:21.155 [restartedMain] CampApiApplication - Started CampApiApplication in 6.926 seconds (JVM running for 11.567)
+[INFO ] 2021-05-31 14:51:31.867 [http-nio-8085-exec-1] [/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] 2021-05-31 14:51:31.867 [http-nio-8085-exec-1] DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2021-05-31 14:51:31.869 [http-nio-8085-exec-1] DispatcherServlet - Completed initialization in 1 ms
+[WARN ] 2021-05-31 14:51:43.434 [http-nio-8085-exec-2] SqlExceptionHelper - SQL Error: 1451, SQLState: 23000
+[ERROR] 2021-05-31 14:51:43.654 [http-nio-8085-exec-2] SqlExceptionHelper - Cannot delete or update a parent row: a foreign key constraint fails (`camp`.`userrole`, CONSTRAINT `FKt9ahk313xww25dk2g2yj2s4hq` FOREIGN KEY (`user_id`) REFERENCES `appuser` (`id`))
+[INFO ] 2021-05-31 14:51:43.739 [http-nio-8085-exec-2] AbstractBatchImpl - HHH000010: On release of batch it still contained JDBC statements
+[WARN ] 2021-05-31 14:51:43.847 [http-nio-8085-exec-2] ExceptionHandlerExceptionResolver - Resolved [org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; constraint [null]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement]
+[WARN ] 2021-05-31 14:56:58.507 [http-nio-8085-exec-6] SqlExceptionHelper - SQL Error: 1451, SQLState: 23000
+[ERROR] 2021-05-31 14:56:58.607 [http-nio-8085-exec-6] SqlExceptionHelper - Cannot delete or update a parent row: a foreign key constraint fails (`camp`.`userrole`, CONSTRAINT `FKt9ahk313xww25dk2g2yj2s4hq` FOREIGN KEY (`user_id`) REFERENCES `appuser` (`id`))
+[INFO ] 2021-05-31 14:56:58.780 [http-nio-8085-exec-6] AbstractBatchImpl - HHH000010: On release of batch it still contained JDBC statements
+[WARN ] 2021-05-31 14:56:58.904 [http-nio-8085-exec-6] ExceptionHandlerExceptionResolver - Resolved [org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; constraint [null]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement]

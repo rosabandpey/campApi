@@ -1,6 +1,7 @@
 package com.camp.campApi.modules.users.controller;
 
 
+import com.camp.campApi.modules.places.entity.ChildPlaceEntity;
 import com.camp.campApi.modules.users.entity.AppUser;
 import com.camp.campApi.entity.ResponseApi;
 import com.camp.campApi.modules.users.service.UserService;
@@ -63,6 +64,22 @@ public class UserController {
     }
 
 
+    @GetMapping(value = "/deleteUser/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<?> deleteUser(@PathVariable long id)
+    {
+        userService.deleteUserById(id);
+        ResponseApi responseApi=new ResponseApi(true,HttpStatus.OK.toString(),new Date().toString(), null);
+        return new ResponseEntity<>(responseApi,HttpStatus.OK );
+    }
+
+
+    @GetMapping(value = "/findUserById/{id}")
+    public AppUser findUserById(@PathVariable("id")long id)
+    {
+        AppUser user=userService.findByUserId(id);
+        return user;
+    }
 
 
 }

@@ -13,6 +13,6 @@ public interface UserService {
   public List<AppUser> findAllUser();
   public AppUser findByUsername(String username);
   public AppUser findByUserId(long id);
-
+  public void deleteUserById(long id);
 
 }
