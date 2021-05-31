@@ -14,7 +14,7 @@ public interface ChildPlaceService {
     public List<ChildPlaceEntity> findAllChildPlace();
     public ChildPlaceEntity findChildPlaceByName(String childName);
     public ChildPlaceEntity findChildPlaceById(long id);
-    public ChildPlaceEntity deleteChildPlace(long id);
+    public void deleteChildPlace(long id);
 
 
 }

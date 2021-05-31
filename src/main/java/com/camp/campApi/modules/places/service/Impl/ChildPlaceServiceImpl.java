@@ -78,8 +78,8 @@ public class ChildPlaceServiceImpl implements ChildPlaceService {
     }
 
     @Override
-    public ChildPlaceEntity deleteChildPlace(long id) {
-        ChildPlaceEntity childPlace=childPlaceRepo.deleteChildPlaceById(id);
-        return childPlace;
+    public void deleteChildPlace(long id) {
+        childPlaceRepo.deleteById(id);
+
     }
 }

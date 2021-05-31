@@ -90,51 +90,51 @@ public class ChildPlaceEntity implements Serializable {
     private String childAddress;
 
     @Column(nullable = false)
-    private Integer childCellSignal;
+    private int childCellSignal;
 
     private Date childLastVisit;
 
     @Column(nullable = false)
-    private Integer childCrowdness;
+    private int childCrowdness;
 
     @Column(nullable = false)
-    private Integer childManNoise;
+    private int childManNoise;
 
     @Column(nullable = false)
-    private Integer childCleanness;
+    private int childCleanness;
 
     @Column(nullable = false)
-    private Integer childSafty;
+    private int childSafty;
 
     @Column(nullable = false)
-    private Integer childWater;
+    private int childWater;
 
     @Column(nullable = false)
-    private Integer childElectronic;
+    private int childElectronic;
 
     @Column(nullable = false)
-    private Integer childShower;
+    private int childShower;
 
     @Column(nullable = false)
-    private Integer childTrash;
+    private int childTrash;
 
     @Column(nullable = false)
     private int childPicnicTable;
 
     @Column(nullable = false)
-    private Integer childToilet;
+    private int childToilet;
 
     @Column(nullable = false)
-    private Integer childWifi;
+    private int childWifi;
 
     @Column(nullable = false)
-    private Integer childFirePits;
+    private int childFirePits;
 
     @Column(nullable = false)
-    private Integer childPetAllowed;
+    private int childPetAllowed;
 
     @Column(nullable = false)
-    private Integer childADAaccessible;
+    private int childADAaccessible;
 
     public long getId() {
         return id;
@@ -150,6 +150,14 @@ public class ChildPlaceEntity implements Serializable {
 
     public void setMychildplace(Place mychildplace) {
         this.mychildplace = mychildplace;
+    }
+
+    public AppUser getUserChildPlace() {
+        return userChildPlace;
+    }
+
+    public void setUserChildPlace(AppUser userChildPlace) {
+        this.userChildPlace = userChildPlace;
     }
 
     public String getChildName() {
@@ -200,11 +208,11 @@ public class ChildPlaceEntity implements Serializable {
         this.childAddress = childAddress;
     }
 
-    public Integer getChildCellSignal() {
+    public int getChildCellSignal() {
         return childCellSignal;
     }
 
-    public void setChildCellSignal(Integer childCellSignal) {
+    public void setChildCellSignal(int childCellSignal) {
         this.childCellSignal = childCellSignal;
     }
 
@@ -216,123 +224,115 @@ public class ChildPlaceEntity implements Serializable {
         this.childLastVisit = childLastVisit;
     }
 
-    public Integer getChildCrowdness() {
+    public int getChildCrowdness() {
         return childCrowdness;
     }
 
-    public void setChildCrowdness(Integer childCrowdness) {
+    public void setChildCrowdness(int childCrowdness) {
         this.childCrowdness = childCrowdness;
     }
 
-    public Integer getChildManNoise() {
+    public int getChildManNoise() {
         return childManNoise;
     }
 
-    public void setChildManNoise(Integer childManNoise) {
+    public void setChildManNoise(int childManNoise) {
         this.childManNoise = childManNoise;
     }
 
-    public Integer getChildCleanness() {
+    public int getChildCleanness() {
         return childCleanness;
     }
 
-    public void setChildCleanness(Integer childCleanness) {
+    public void setChildCleanness(int childCleanness) {
         this.childCleanness = childCleanness;
     }
 
-    public Integer getChildSafty() {
+    public int getChildSafty() {
         return childSafty;
     }
 
-    public void setChildSafty(Integer childSafty) {
+    public void setChildSafty(int childSafty) {
         this.childSafty = childSafty;
     }
 
-    public Integer getChildWater() {
+    public int getChildWater() {
         return childWater;
     }
 
-    public void setChildWater(Integer childWater) {
+    public void setChildWater(int childWater) {
         this.childWater = childWater;
     }
 
-    public Integer getChildElectronic() {
+    public int getChildElectronic() {
         return childElectronic;
     }
 
-    public void setChildElectronic(Integer childElectronic) {
+    public void setChildElectronic(int childElectronic) {
         this.childElectronic = childElectronic;
     }
 
-    public Integer getChildShower() {
+    public int getChildShower() {
         return childShower;
     }
 
-    public void setChildShower(Integer childShower) {
+    public void setChildShower(int childShower) {
         this.childShower = childShower;
     }
 
-    public Integer getChildTrash() {
+    public int getChildTrash() {
         return childTrash;
     }
 
-    public void setChildTrash(Integer childTrash) {
+    public void setChildTrash(int childTrash) {
         this.childTrash = childTrash;
     }
 
-    public Integer getChildPicnicTable() {
+    public int getChildPicnicTable() {
         return childPicnicTable;
     }
 
-    public void setChildPicnicTable(Integer childPicnicTable) {
+    public void setChildPicnicTable(int childPicnicTable) {
         this.childPicnicTable = childPicnicTable;
     }
 
-    public Integer getChildToilet() {
+    public int getChildToilet() {
         return childToilet;
     }
 
-    public void setChildToilet(Integer childToilet) {
+    public void setChildToilet(int childToilet) {
         this.childToilet = childToilet;
     }
 
-    public Integer getChildWifi() {
+    public int getChildWifi() {
         return childWifi;
     }
 
-    public void setChildWifi(Integer childWifi) {
+    public void setChildWifi(int childWifi) {
         this.childWifi = childWifi;
     }
 
-    public Integer getChildFirePits() {
+    public int getChildFirePits() {
         return childFirePits;
     }
 
-    public void setChildFirePits(Integer childFirePits) {
+    public void setChildFirePits(int childFirePits) {
         this.childFirePits = childFirePits;
     }
 
-    public Integer getChildPetAllowed() {
+    public int getChildPetAllowed() {
         return childPetAllowed;
     }
 
-    public void setChildPetAllowed(Integer childPetAllowed) {
+    public void setChildPetAllowed(int childPetAllowed) {
         this.childPetAllowed = childPetAllowed;
     }
 
-    public Integer getChildADAaccessible() {
+    public int getChildADAaccessible() {
         return childADAaccessible;
     }
 
-    public void setChildADAaccessible(Integer childADAaccessible) {
+    public void setChildADAaccessible(int childADAaccessible) {
         this.childADAaccessible = childADAaccessible;
-    }
-
-    public AppUser getUserChildPlace() {
-        return userChildPlace;
-    }
-
-    public void setUserChildPlace(AppUser userChildPlace) {
-        this.userChildPlace = userChildPlace;
     }
 }

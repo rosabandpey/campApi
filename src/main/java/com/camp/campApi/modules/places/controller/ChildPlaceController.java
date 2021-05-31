@@ -79,12 +79,12 @@ public class ChildPlaceController {
     }
 
 
-    @DeleteMapping(value = "/deletePlace")
+    @GetMapping(value = "/deletePlace/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> deletePlace(@PathVariable long id)
     {
-        ChildPlaceEntity place=childPlaceService.deleteChildPlace(id);
-        ResponseApi responseApi=new ResponseApi(true,HttpStatus.OK.toString(),new Date().toString(), Arrays.asList(place) );
+        childPlaceService.deleteChildPlace(id);
+        ResponseApi responseApi=new ResponseApi(true,HttpStatus.OK.toString(),new Date().toString(), null);
         return new ResponseEntity<>(responseApi,HttpStatus.OK );
     }
 
