@@ -39,6 +39,14 @@ public class UserController {
 
     }
 
+    @RequestMapping(value = "/updateProfile",method = {RequestMethod.GET,RequestMethod.POST},produces = {MediaType.APPLICATION_JSON_VALUE})
+    public ResponseEntity<?>  updateProfile(@RequestBody AppUser appUser) {
+
+        AppUser user = userService.updateProfile(appUser);
+        ResponseApi responseApi=new ResponseApi(true,HttpStatus.OK.toString(),new Date().toString(), Arrays.asList(user) );
+        return new ResponseEntity<>(responseApi,HttpStatus.OK);
+
+    }
 
 
     @GetMapping("/userList")

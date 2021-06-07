@@ -46,8 +46,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public AppUser updateProfile() {
-        return  null;
+    public AppUser updateProfile(AppUser appUser) {
+        AppUser exist = userRepo.getOne(appUser.getId());
+        MyBeanCopy myBeanCopy = new MyBeanCopy();
+        myBeanCopy.copyProperties(exist,appUser);
+
+        //appUser.setPassword(bCryptPasswordEncoder.encode(appUser.getPassword()));
+        userRepo.save(appUser);
+        return appUser ;
     }
 
     @Override

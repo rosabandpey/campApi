@@ -8,7 +8,7 @@ import java.util.List;
 public interface UserService {
 
   public AppUser register(AppUser appUser);
-  public AppUser updateProfile();
+  public AppUser updateProfile(AppUser appUser);
   public AppUser resetPassword();
   public List<AppUser> findAllUser();
   public AppUser findByUsername(String username);
