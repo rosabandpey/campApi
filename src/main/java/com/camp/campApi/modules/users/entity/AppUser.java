@@ -40,10 +40,10 @@ public class AppUser implements Serializable {
     private String sex;
     private Date birthdate;
 
-    @OneToMany(mappedBy = "appuser",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "appuser",fetch = FetchType.EAGER,cascade = CascadeType.REMOVE)
     private Set<UserRole> userRoles=new HashSet<>();
 
-    @OneToMany(mappedBy ="userChildPlace" )
+    @OneToMany(mappedBy ="userChildPlace" ,cascade = CascadeType.REMOVE)
     private Set<ChildPlaceEntity> userChildPlaces=new HashSet<>();
 
 

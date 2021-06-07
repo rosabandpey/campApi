@@ -1,5 +1,6 @@
 package com.camp.campApi.modules.users.service.Impl;
 
+import com.camp.campApi.modules.users.service.MyBeanCopy;
 import com.camp.campApi.modules.users.service.UserService;
 import com.camp.campApi.modules.users.entity.AppUser;
 import com.camp.campApi.modules.users.entity.UserRole;
@@ -47,11 +48,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public AppUser updateProfile(AppUser appUser) {
-        AppUser exist = userRepo.getOne(appUser.getId());
-        MyBeanCopy myBeanCopy = new MyBeanCopy();
-        myBeanCopy.copyProperties(exist,appUser);
 
-        //appUser.setPassword(bCryptPasswordEncoder.encode(appUser.getPassword()));
+        appUser.setPassword(bCryptPasswordEncoder.encode(appUser.getPassword()));
         userRepo.save(appUser);
         return appUser ;
     }
