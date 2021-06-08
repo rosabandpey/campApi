@@ -65,7 +65,7 @@ public class ChildPlaceController {
     }
 
     @GetMapping(value = "/findAllPlaces/{pageable}")
-    public Page<ChildPlaceEntity> findAllPlaces(@PathVariable("pageable")Pageable pageable)
+    public Page<ChildPlaceEntity> findAllPlaces(@PathVariable("pageable") Pageable pageable)
     {
         Page<ChildPlaceEntity> places=childPlaceService.findAllChildPlace(pageable);
         return places;
