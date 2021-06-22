@@ -10,6 +10,7 @@ import com.camp.campApi.modules.users.entity.AppUser;
 import com.camp.campApi.modules.users.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -62,9 +63,10 @@ public class ChildPlaceServiceImpl implements ChildPlaceService {
 
 
     @Override
-    public Page<ChildPlaceEntity> findAllChildPlace(Pageable pageable) {
-       Page<ChildPlaceEntity> list=childPlaceRepo.findAll(pageable);
-       return list;
+    public Page<ChildPlaceEntity> findAllChildPlace(int pageNo, int pageSize ) {
+        Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
+        Page<ChildPlaceEntity> page=childPlaceRepo.findAll(pageable);
+        return page;
     }
 
     @Override

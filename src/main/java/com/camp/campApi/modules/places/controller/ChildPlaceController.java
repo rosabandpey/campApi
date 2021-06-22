@@ -9,7 +9,9 @@ import com.camp.campApi.modules.places.service.PlaceService;
 import com.camp.campApi.modules.users.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -64,12 +66,17 @@ public class ChildPlaceController {
         return new ResponseEntity<>(responseApi,HttpStatus.OK );
     }
 
-    @GetMapping(value = "/findAllPlaces/{pageable}")
-    public Page<ChildPlaceEntity> findAllPlaces(@PathVariable("pageable") Pageable pageable)
+    @GetMapping(value = "/findAllPlaces/{pageNo}")
+    public Page<ChildPlaceEntity> findAllPlaces(@PathVariable (value = "pageNo") int pageNo)
     {
-        Page<ChildPlaceEntity> places=childPlaceService.findAllChildPlace(pageable);
+        int pageSize = 5;
+
+        Page<ChildPlaceEntity> places=childPlaceService.findAllChildPlace(pageNo, pageSize);
+       // List<ChildPlaceEntity> listPlaces = places.getContent();
         return places;
     }
+
+
 
 
     @GetMapping(value = "/findPlaceById/{id}")

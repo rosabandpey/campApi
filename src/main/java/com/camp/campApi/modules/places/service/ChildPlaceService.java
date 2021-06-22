@@ -13,7 +13,7 @@ public interface ChildPlaceService {
 
     public ChildPlaceEntity registerChildPlace(ChildPlace childPlace, Principal principal);
     public ChildPlaceEntity updateChildPlace(long id, String name, String country);
-    public Page<ChildPlaceEntity> findAllChildPlace(Pageable pageable);
+    public Page<ChildPlaceEntity> findAllChildPlace(int pageNo, int pageSize);
     public ChildPlaceEntity findChildPlaceByName(String childName);
     public ChildPlaceEntity findChildPlaceById(long id);
     public void deleteChildPlace(long id);
